@@ -17,6 +17,9 @@
             [(ngModel)]="model.email"
           />
           <div [hidden]="email.valid || email.pristine" class="invalid-text">
+            Invalid Input
+          </div>
+          <div *ngIf="submit && formValid" class="invalid-text">
             Incorrect Email Address !
           </div>
         </div>
@@ -39,6 +42,9 @@
             [hidden]="password.valid || password.pristine"
             class="invalid-text"
           >
+            Invalid Input
+          </div>
+          <div *ngIf="submit && formValid" class="invalid-text">
             Incorrect Password !
           </div>
         </div>
@@ -50,6 +56,7 @@
           >
             Login
           </button>
+          <div *ngIf="submit && !formValid" class="valid-text">Form Valid</div>
         </div>
       </form>
     </div>

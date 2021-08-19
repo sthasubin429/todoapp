@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
   myForm!: FormGroup;
   model = new Login('', '');
 
+  submit = false;
+  formValid = false;
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -33,7 +36,17 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.myForm.get('password');
   }
+
   formSubmit(): void {
+    this.submit = true;
+    if (
+      (this.model.email === 'subin@gmail.com',
+      this.model.password === 'Subin123k')
+    ) {
+      this.formValid = false;
+    } else {
+      this.formValid = true;
+    }
     console.log(this.model.email, this.model.password);
   }
 }
