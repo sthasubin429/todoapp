@@ -1,0 +1,65 @@
+@use '../../scss/variables.scss' as *;
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: $color-background;
+
+  .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 16px 16px $color-background-secondary;
+    display: flex;
+
+    .form {
+      margin: 1rem;
+
+      h1 {
+        color: $color-primary;
+      }
+      h2 {
+        width: max-content;
+      }
+      p {
+        margin-top: -12px;
+      }
+      form {
+        .form-group {
+          //  margin: 1.5rem 0;
+          //  .form-label {
+          //    font-weight: 450;
+          //    font-size: 16px;
+          //    line-height: 24px;
+          //    color: $color-text;
+          //    display: block;
+          //  }
+          .forgot-password {
+            color: $color-primary;
+            font-size: 13px;
+            line-height: 21px;
+            float: right;
+            margin: 8px 0;
+          }
+          .invalid-text {
+            color: $color-error;
+            font-size: 13px;
+            line-height: 21px;
+            padding: 12px 0 0 24px;
+          }
+          .btn-login {
+            padding: 12px 160px;
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+
+    .side-bar {
+      width: 300px;
+      content: "";
+      border-radius: 0 8px 8px 0;
+      background-color: $color-background-secondary;
+    }
+  }
+}
