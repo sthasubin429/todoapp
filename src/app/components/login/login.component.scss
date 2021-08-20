@@ -34,6 +34,27 @@
           //    color: $color-text;
           //    display: block;
           //  }
+          position: relative;
+          .left-icon {
+            position: absolute;
+            color: $color-text-secondary;
+            top: 44px;
+            left: 16px;
+            font-size: 14px;
+          }
+          .right-icon {
+            position: absolute;
+            color: $color-error;
+            top: 44px;
+            right: 16px;
+            font-size: 14px;
+          }
+          .right-icon-password {
+            color: $color-text-secondary;
+          }
+          .right-icon-sucess {
+            color: $color-sucess;
+          }
           .forgot-password {
             color: $color-primary;
             font-size: 13px;
@@ -45,7 +66,7 @@
             color: $color-error;
             font-size: 13px;
             line-height: 21px;
-            padding: 12px 0 0 24px;
+            padding: 12px 0 0 2px;
           }
           .valid-text {
             color: $color-sucess;
@@ -57,6 +78,14 @@
             padding: 12px 160px;
             margin-top: 2rem;
           }
+        }
+      }
+      .login-footer {
+        font-size: 13px;
+        line-height: 21px;
+        text-align: center;
+        a {
+          color: $color-primary;
         }
       }
     }

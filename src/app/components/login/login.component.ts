@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/login';
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+import {
+  faExclamationCircle,
+  faEnvelope,
+  faLock,
+  faTimes,
+  faEye,
+  faEyeSlash,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +22,16 @@ export class LoginComponent implements OnInit {
 
   submit = false;
   formValid = false;
+
+  faExclamationCircle = faExclamationCircle;
+  faEnvelope = faEnvelope;
+  faLock = faLock;
+  faTimes = faTimes;
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  faCheck = faCheck;
+
+  showPassword = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -41,12 +60,20 @@ export class LoginComponent implements OnInit {
     this.submit = true;
     if (
       (this.model.email === 'subin@gmail.com',
-      this.model.password === 'Subin123k')
+      this.model.password === 'Subin1234')
     ) {
       this.formValid = false;
     } else {
       this.formValid = true;
     }
     console.log(this.model.email, this.model.password);
+  }
+  showHidePassword(): void {
+    this.showPassword = !this.showPassword;
+    if (this.showPassword) {
+      document.querySelector('#password').setAttribute('type', 'text');
+    } else {
+      document.querySelector('#password').setAttribute('type', 'password');
+    }
   }
 }
