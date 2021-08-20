@@ -16,6 +16,7 @@
             required
             formControlName="email"
             [(ngModel)]="model.email"
+            placeholder="Enter Your Email"
           />
           <fa-icon
             [icon]="faTimes"
@@ -48,6 +49,7 @@
             required
             formControlName="password"
             [(ngModel)]="model.password"
+            placeholder="Enter Your Password"
           />
           <fa-icon
             [icon]="!showPassword ? faEye : faEyeSlash"
@@ -90,7 +92,14 @@
         Not Registered yet? <a href="#">Create New account</a>
       </p>
     </div>
-    <div class="side-bar"></div>
+    <div class="side-bar">
+      <img
+        src="../../../assets/img/login-img.png"
+        alt="Login Img"
+        width="350"
+        height="270"
+      />
+    </div>
   </div>
   <!-- {{ myForm.value | json }} -->
 </div>

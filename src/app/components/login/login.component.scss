@@ -11,34 +11,31 @@
     border-radius: 8px;
     box-shadow: 0 16px 16px $color-background-secondary;
     display: flex;
+    padding-left: 12px;
 
     .form {
-      margin: 1rem;
+      margin: 16px 18px;
 
       h1 {
+        font-weight: 550;
         color: $color-primary;
+        letter-spacing: 6px;
+        margin: 8px 8px 26px 0;
       }
       h2 {
         width: max-content;
+        font-size: 24px;
       }
       p {
         margin-top: -12px;
       }
       form {
         .form-group {
-          //  margin: 1.5rem 0;
-          //  .form-label {
-          //    font-weight: 450;
-          //    font-size: 16px;
-          //    line-height: 24px;
-          //    color: $color-text;
-          //    display: block;
-          //  }
           position: relative;
           .left-icon {
             position: absolute;
             color: $color-text-secondary;
-            top: 44px;
+            top: 42px;
             left: 16px;
             font-size: 14px;
           }
@@ -75,7 +72,7 @@
             padding: 12px 0 0 24px;
           }
           .btn-login {
-            padding: 12px 160px;
+            padding: 12px 170px;
             margin-top: 2rem;
           }
         }
@@ -91,10 +88,12 @@
     }
 
     .side-bar {
-      width: 300px;
       content: "";
       border-radius: 0 8px 8px 0;
-      background-color: $color-background-secondary;
+      background-color: $color-background;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }
