@@ -8,10 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
