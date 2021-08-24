@@ -10,6 +10,7 @@ import {
   faEyeSlash,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      email: [this.model.email, [Validators.required, Validators.email]],
+      email: [
+        this.model.email,
+        [
+          Validators.required,
+          //  Validators.email,
+          CustomEmailValidator,
+        ],
+      ],
       password: [
         this.model.password,
         [
