@@ -10,6 +10,7 @@ import {
   faEyeSlash,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import { customEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
 
 @Component({
   selector: 'app-login',
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
         this.model.password,
         [
           Validators.required,
-          Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
+          //  Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$'),
+          customEmailValidator,
         ],
       ],
     });
