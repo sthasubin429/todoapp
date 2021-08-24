@@ -7,5 +7,5 @@ export function customEmailValidator(
   control: AbstractControl
 ): { [key: string]: any } | null {
   const check = emailRegex.test(control.value);
-  return check ? { customEmailCheck: { value: control.value } } : null;
+  return check ? null : { customEmailCheck: { value: control.value } };
 }
