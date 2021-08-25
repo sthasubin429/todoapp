@@ -6,11 +6,11 @@
   place-items: center;
   background-color: $color-background;
 
-  .container {
+  .login-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 16px 16px $color-background-secondary;
-    display: flex;
+
     padding-left: 12px;
 
     .form {
@@ -20,15 +20,13 @@
         font-weight: 550;
         color: $color-primary;
         letter-spacing: 6px;
-        margin: 8px 8px 26px 0;
+        margin: 8px 8px 20px 0;
       }
       h2 {
         width: max-content;
         font-size: 24px;
       }
-      p {
-        margin-top: -12px;
-      }
+
       form {
         .form-group {
           position: relative;
@@ -72,7 +70,7 @@
             padding: 12px 0 0 24px;
           }
           .btn-login {
-            padding: 12px 170px;
+            padding: 12px 165px;
             margin-top: 2rem;
           }
         }
