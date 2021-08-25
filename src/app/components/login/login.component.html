@@ -78,13 +78,13 @@
           </div>
         </div>
         <div class="form-group">
-          <button
-            type="submit"
-            class="btn btn-login"
+          <app-button
+            width="370px"
+            text="Login"
+            (btnClick)="submitButton()"
             [disabled]="myForm.invalid"
-          >
-            Login
-          </button>
+          ></app-button>
+
           <div *ngIf="submit && !formValid" class="valid-text">Form Valid</div>
         </div>
       </form>
