@@ -11,6 +11,8 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
+import { UsersService } from 'src/app/services/users.service';
+import { UserList, User } from 'src/app/user';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   submit = false;
   formValid = false;
+  showPassword = false;
 
   faExclamationCircle = faExclamationCircle;
   faEnvelope = faEnvelope;
@@ -32,9 +35,9 @@ export class LoginComponent implements OnInit {
   faEyeSlash = faEyeSlash;
   faCheck = faCheck;
 
-  showPassword = false;
+  users: User[] = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -54,6 +57,8 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
+
+    this.users = this.usersService.getUser();
   }
 
   get email() {
@@ -69,14 +74,18 @@ export class LoginComponent implements OnInit {
 
   formSubmit(): void {
     this.submit = true;
-    if (
-      (this.model.email === 'subin@gmail.com',
-      this.model.password === 'Subin1234')
-    ) {
-      this.formValid = false;
-    } else {
-      this.formValid = true;
+    for (let user of this.users) {
+      if (
+        this.model.email === user.email &&
+        this.model.password === user.password
+      ) {
+        this.formValid = false;
+        break;
+      } else {
+        this.formValid = true;
+      }
     }
+
     console.log(this.model.email, this.model.password);
   }
   submitButton(): void {
