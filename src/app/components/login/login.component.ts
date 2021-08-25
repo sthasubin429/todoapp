@@ -64,6 +64,9 @@ export class LoginComponent implements OnInit {
     return this.myForm.get('password');
   }
 
+  //Use either FormSubmit or SubmitButton
+  //Both gives same results through different process
+
   formSubmit(): void {
     this.submit = true;
     if (
@@ -75,6 +78,10 @@ export class LoginComponent implements OnInit {
       this.formValid = true;
     }
     console.log(this.model.email, this.model.password);
+  }
+  submitButton(): void {
+    console.log('Form Submitted');
+    console.log(this.myForm.value);
   }
   showHidePassword(): void {
     this.showPassword = !this.showPassword;
