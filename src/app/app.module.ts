@@ -13,7 +13,12 @@ import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent, ButtonComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
