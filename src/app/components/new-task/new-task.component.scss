@@ -1,0 +1,35 @@
+@use '../../scss/variables.scss' as *;
+.newTask-wrapper {
+  padding: 12px;
+  .newTask-header {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .newTask-form {
+    .form-group {
+      .form-input {
+        width: 100%;
+      }
+      .form-select {
+        .form-select-option {
+          height: 50px;
+        }
+      }
+      .form-select:focus {
+        background-color: white;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 0 1px $color-primary;
+      }
+    }
+  }
+}
+
+.md-datepicker-calendar-pane {
+  z-index: 2000;
+}

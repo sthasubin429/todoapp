@@ -14,9 +14,17 @@ import { HomeComponent } from './components/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewTaskComponent } from './components/new-task/new-task.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, ButtonComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    ButtonComponent,
+    DashboardComponent,
+    NewTaskComponent,
+  ],
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule,

@@ -30,6 +30,9 @@
       form {
         .form-group {
           position: relative;
+          .form-input {
+            padding: 16px 16px 16px 36px;
+          }
           .left-icon {
             position: absolute;
             color: $color-text-secondary;
