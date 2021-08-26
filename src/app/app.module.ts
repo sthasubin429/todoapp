@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
 import { BrowserModule } from '@angular/platform-browser';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './modules/app-material/app-material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { ButtonComponent } from './components/button/button.component';
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    AppMaterialModule,
+
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
