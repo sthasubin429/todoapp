@@ -3,13 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^12.2.3",
+    "@angular/compiler-cli": "~12.2.0",
+    "typescript": "~4.3.5",
     "@angular-material-components/datetime-picker": "^6.0.3",
     "@angular/animations": "~12.2.0",
     "@angular/cdk": "^12.2.3",
@@ -31,6 +35,7 @@
     "angular-bootstrap-md": "^12.0.0",
     "animate.css": "~3.7.2",
     "chart.js": "^2.7.2",
+    "express": "^4.17.1",
     "hammerjs": "~2.0.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
@@ -38,7 +43,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.1",
-    "@angular/cli": "~12.2.1",
+    "@angular/cli": "^12.2.3",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
@@ -49,5 +54,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
+  },
+  "engines": {
+    "node": "16.6.2",
+    "npm": "7.20.6"
   }
 }
