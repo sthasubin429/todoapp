@@ -22,8 +22,7 @@ deploy_staging:
   stage: deploy
   image: ruby:2.3
   when: on_success
-  dependencies:
-    - build
+
   script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
