@@ -33,3 +33,13 @@
 .md-datepicker-calendar-pane {
   z-index: 2000;
 }
+
+.new-task-btn {
+  background-color: $color-primary;
+  color: white;
+}
+
+.new-task-btn-alt {
+  color: $color-primary;
+  border: solid 1px $color-primary;
+}

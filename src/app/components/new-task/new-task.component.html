@@ -9,7 +9,7 @@
     Create Task <span> <i class="fas fa-times" mat-dialog-close></i></span>
   </h1>
   <div mat-dialog-content>
-    <form class="newTask-form">
+    <form class="newTask-form" [formGroup]="addTaskForm">
       <div class="form-group">
         <label for="taskName" class="form-label">Task Name</label>
         <input
@@ -18,12 +18,19 @@
           class="form-input"
           id="taskName"
           required
-          formControlName="taskName"
+          [formControl]="taskName"
           placeholder="Enter Task Name"
         />
       </div>
-      <div class="form-row">
-        <div class="form-group col-12 col-md-4">
+
+      <div
+        class="
+          form-row
+          d-flex
+          justify-content-around justify-content-md-between
+        "
+      >
+        <div class="form-group">
           <label for="chooseList" class="form-label">Choose List</label>
           <mat-form-field appearance="fill">
             <mat-label>Choose List Name</mat-label>
@@ -38,7 +45,8 @@
             >
           </mat-form-field>
         </div>
-        <div class="form-group col-12 col-md-4">
+
+        <div class="form-group">
           <label for="choosePriority" class="form-label">Choose Priority</label>
           <mat-form-field appearance="fill">
             <mat-label>Choose Priority</mat-label>
@@ -56,26 +64,41 @@
             >
           </mat-form-field>
         </div>
-        <div class="form-group col-12 col-md-4">
+        <div class="form-group">
           <label for="choosePriority" class="form-label"
             >Set Date and Time</label
           >
           <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" />
-            <!-- <input matInput type="datetime-local" placeholder="start date" /> -->
-            <mat-datepicker-toggle
+            <!-- <input matInput [matDatepicker]="picker" /> -->
+            <input
+              matInput
+              type="datetime-local"
+              [formControl]="dateControl"
+              placeholder="start date"
+            />
+            <!-- <mat-datepicker-toggle
               matSuffix
               [for]="picker"
-            ></mat-datepicker-toggle>
+            ></mat-datepicker-toggle> -->
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
     </form>
   </div>
-  <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
-    <app-button text="Add Task" [disabled]="false"></app-button>
+  <div
+    mat-dialog-actions
+    class="d-flex justify-content-center justify-content-md-end"
+  >
+    <button mat-stroked-button class="new-task-btn-alt">Cancel</button>
+    <button
+      mat-raised-button
+      (click)="addNewTask()"
+      mat-dialog-close
+      class="new-task-btn"
+    >
+      Add Task
+    </button>
   </div>
 </div>

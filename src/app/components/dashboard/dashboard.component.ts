@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {}
 
   openCreateNewTask(): void {
-    console.log('asd');
     this.dialog.open(NewTaskComponent, {
       width: '800px',
     });
