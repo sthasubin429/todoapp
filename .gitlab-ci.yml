@@ -6,13 +6,31 @@ before_script:
   - gem install dpl
 
 stages:
-  - staging
-  - production
+  - build
+  - deploy
 
-staging:
-  stage: staging
-  image: ruby:latest
+# New stage for building your Angular app
+build_staging:
+  stage: build
+  image: trion/ng-cli
+  allow_failure: false
   script:
+    - npm install
+    - ng build --prod
+
+deploy_staging:
+  stage: deploy
+  image: ruby:2.3
+  when: on_success
+  dependencies:
+    - build
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+  environment:
+    name: staging
+    url: https://$HEROKU_APP_STAGING.herokuapp.com
   only:
     - heroku-deployment
