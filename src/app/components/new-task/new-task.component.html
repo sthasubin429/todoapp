@@ -21,6 +21,9 @@
           [formControl]="taskName"
           placeholder="Enter Task Name"
         />
+        <mat-error *ngIf="taskName.dirty && taskName.invalid"
+          >Task Name is invalid</mat-error
+        >
       </div>
 
       <div

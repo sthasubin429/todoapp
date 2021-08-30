@@ -4,7 +4,6 @@ import {
   Validators,
   FormGroup,
   FormBuilder,
-  Validator,
 } from '@angular/forms';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
@@ -27,6 +26,7 @@ export class NewTaskComponent implements OnInit {
   taskName = new FormControl('', [
     Validators.required,
     Validators.pattern('^[a-zA-Z ]*$'),
+    Validators.minLength(3),
   ]);
   dateControl = new FormControl('', Validators.required);
 
@@ -52,15 +52,15 @@ export class NewTaskComponent implements OnInit {
       priority: this.priorityControl.value,
       dateTime: this.dateControl.value,
     };
+
     console.log(newTask);
     console.log(this.addTaskForm.valid);
+
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
         console.log(task);
       });
       this.dialog.closeAll();
     }
-
-    //clear form
   }
 }

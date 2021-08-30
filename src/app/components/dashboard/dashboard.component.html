@@ -4,3 +4,7 @@
   (btnClick)="openCreateNewTask()"
   [disabled]="false"
 ></app-button>
+
+<div *ngFor="let task of taskList">
+  {{ task.name }}
+</div>
