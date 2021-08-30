@@ -1,0 +1,18 @@
+
+docker images
+docker ps
+docker rmi "image name"
+
+
+#building docker file
+docker build -t todoapp -f Dockerfile .
+
+#running docker
+docker run --rm -it -p 4201:4200 todoapp
+
+
+#heroku deployment
+
+heroku container:login
+heroku container:push web --app fast-depths-72732
+heroku container:release web --app fast-depths-72732
