@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -7,6 +6,9 @@ import {
   FormBuilder,
   Validator,
 } from '@angular/forms';
+import { TasksService } from 'src/app/services/tasks.service';
+import { Task } from 'src/app/tasks';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-task',
@@ -22,10 +24,17 @@ export class NewTaskComponent implements OnInit {
   priorityControl = new FormControl('', Validators.required);
   priorities: string[] = ['High', 'Medium', 'Low'];
 
-  taskName = new FormControl('', Validators.required);
+  taskName = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-Z ]*$'),
+  ]);
   dateControl = new FormControl('', Validators.required);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private taskService: TasksService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.addTaskForm = this.fb.group({
@@ -37,11 +46,21 @@ export class NewTaskComponent implements OnInit {
   }
 
   addNewTask(): void {
-    console.log(
-      this.taskName.value,
-      this.listControl.value,
-      this.priorityControl.value,
-      this.dateControl.value
-    );
+    let newTask: Task = {
+      name: this.taskName.value,
+      list: this.listControl.value,
+      priority: this.priorityControl.value,
+      dateTime: this.dateControl.value,
+    };
+    console.log(newTask);
+    console.log(this.addTaskForm.valid);
+    if (this.addTaskForm.valid) {
+      this.taskService.addTask(newTask).subscribe((task) => {
+        console.log(task);
+      });
+      this.dialog.closeAll();
+    }
+
+    //clear form
   }
 }

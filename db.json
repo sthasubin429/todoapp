@@ -1,6 +1,21 @@
 {
   "users": [
-    { "email": "subin@gmail.com", "password": "Password123" },
-    { "email": "subin1@gmail.com", "password": "Password123" }
+    {
+      "email": "subin@gmail.com",
+      "password": "Password123"
+    },
+    {
+      "email": "subin1@gmail.com",
+      "password": "Password123"
+    }
+  ],
+  "tasks": [
+    {
+      "name": "asdasd",
+      "list": "College",
+      "priority": "Medium",
+      "dateTime": "2021-08-12T16:04",
+      "id": 1
+    }
   ]
 }
