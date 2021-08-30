@@ -1,0 +1,6 @@
+{
+  "users": [
+    { "email": "subin@gmail.com", "password": "Password123" },
+    { "email": "subin1@gmail.com", "password": "Password123" }
+  ]
+}
