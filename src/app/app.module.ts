@@ -23,6 +23,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { HeaderComponent } from './components/header/header.component';
 
 registerLocaleData(en);
 
@@ -34,6 +35,7 @@ registerLocaleData(en);
     ButtonComponent,
     DashboardComponent,
     NewTaskComponent,
+    HeaderComponent,
   ],
   imports: [
     NzButtonModule,
