@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
   Validators,
@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-task',
@@ -33,7 +33,8 @@ export class NewTaskComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private taskService: TasksService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class NewTaskComponent implements OnInit {
       listControl: this.listControl,
       dateControl: this.dateControl,
     });
+    console.log(this.data.taskList);
   }
 
   addNewTask(): void {
@@ -58,7 +60,7 @@ export class NewTaskComponent implements OnInit {
 
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
-        console.log(task);
+        this.data.taskList.push(task);
       });
       this.dialog.closeAll();
     }

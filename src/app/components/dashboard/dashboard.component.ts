@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   openCreateNewTask(): void {
     this.dialog.open(NewTaskComponent, {
       width: '800px',
+      data: { taskList: this.taskList },
     });
   }
 }
