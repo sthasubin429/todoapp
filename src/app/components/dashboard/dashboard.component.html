@@ -5,13 +5,12 @@
     </div>
   </div>
   <div class="row">
-    <app-button
-      width="250px"
-      text="Create New Task"
-      (btnClick)="openCreateNewTask()"
-      [disabled]="false"
-    ></app-button>
+    <div class="col">
+      <app-sub-header (openNewTask)="openCreateNewTask()"></app-sub-header>
+    </div>
+  </div>
 
+  <div class="row">
     <div *ngFor="let task of taskList">
       {{ task.name }}
     </div>
