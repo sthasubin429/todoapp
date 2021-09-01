@@ -7,10 +7,6 @@
     "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-<<<<<<< HEAD
-    "heroku-postbuild": "ng build --prod",
-=======
->>>>>>> staging
     "server": "json-server --watch db.json --port 5000"
   },
   "private": true,
