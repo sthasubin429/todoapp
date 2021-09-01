@@ -1,0 +1,9 @@
+[build]
+  publish = "dist/todoapp"
+  command = "ng build --prod"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
