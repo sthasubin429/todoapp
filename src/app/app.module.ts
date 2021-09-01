@@ -7,7 +7,9 @@ import { AppMaterialModule } from './modules/app-material/app-material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -15,6 +17,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { HeaderComponent } from './components/header/header.component';
+import { SubHeaderComponent } from './components/sub-header/sub-header.component';
+import { OverviewComponent } from './components/overview/overview.component';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -24,18 +37,25 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
     ButtonComponent,
     DashboardComponent,
     NewTaskComponent,
+    HeaderComponent,
+    SubHeaderComponent,
+    OverviewComponent,
   ],
   imports: [
+    NzButtonModule,
     MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppMaterialModule,
+
+    HttpClientModule,
 
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

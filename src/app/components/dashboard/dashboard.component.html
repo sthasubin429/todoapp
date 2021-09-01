@@ -1,6 +1,22 @@
-<app-button
-  width="250px"
-  text="Create New Task"
-  (btnClick)="openCreateNewTask()"
-  [disabled]="false"
-></app-button>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-header></app-header>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-sub-header (openNewTask)="openCreateNewTask()"></app-sub-header>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-overview></app-overview>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let task of taskList">
+      {{ task.name }}
+    </div>
+  </div>
+</div>

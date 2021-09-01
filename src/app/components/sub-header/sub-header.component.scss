@@ -1,0 +1,22 @@
+@use '../../scss/variables.scss' as *;
+
+[nz-button] {
+  background-color: $color-primary;
+  border: none;
+  padding: 12px 40px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.wrapper {
+  padding: 24px 40px;
+
+  .date {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+}

@@ -1,12 +1,13 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
   Validators,
   FormGroup,
   FormBuilder,
-  Validator,
 } from '@angular/forms';
+import { TasksService } from 'src/app/services/tasks.service';
+import { Task } from 'src/app/tasks';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-task',
@@ -22,10 +23,19 @@ export class NewTaskComponent implements OnInit {
   priorityControl = new FormControl('', Validators.required);
   priorities: string[] = ['High', 'Medium', 'Low'];
 
-  taskName = new FormControl('', Validators.required);
+  taskName = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[a-zA-Z ]*$'),
+    Validators.minLength(3),
+  ]);
   dateControl = new FormControl('', Validators.required);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private taskService: TasksService,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
     this.addTaskForm = this.fb.group({
@@ -34,14 +44,25 @@ export class NewTaskComponent implements OnInit {
       listControl: this.listControl,
       dateControl: this.dateControl,
     });
+    console.log(this.data.taskList);
   }
 
   addNewTask(): void {
-    console.log(
-      this.taskName.value,
-      this.listControl.value,
-      this.priorityControl.value,
-      this.dateControl.value
-    );
+    let newTask: Task = {
+      name: this.taskName.value,
+      list: this.listControl.value,
+      priority: this.priorityControl.value,
+      dateTime: this.dateControl.value,
+    };
+
+    console.log(newTask);
+    console.log(this.addTaskForm.valid);
+
+    if (this.addTaskForm.valid) {
+      this.taskService.addTask(newTask).subscribe((task) => {
+        this.data.taskList.push(task);
+      });
+      this.dialog.closeAll();
+    }
   }
 }

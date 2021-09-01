@@ -1,0 +1,31 @@
+@use '../../scss/variables.scss' as *;
+header {
+  width: 100%;
+  background-color: white;
+  h2 {
+    color: $color-primary;
+    letter-spacing: 6px;
+    cursor: pointer;
+  }
+
+  .header-user {
+    margin: 0 14px;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: $color-primary-100;
+    color: $color-primary;
+    font-weight: 500;
+  }
+
+  [nz-button] {
+    span {
+      margin: 0 10px;
+    }
+    background-color: white;
+    border: none;
+    color: $color-text;
+    font-weight: 400;
+    font-size: 20px;
+    box-shadow: none;
+  }
+}

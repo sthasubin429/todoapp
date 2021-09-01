@@ -1,0 +1,10 @@
+<header class="wrapper d-flex justify-content-between">
+  <h2 (click)="headerOnClick()">{{ title | uppercase }}</h2>
+  <div class="header-right">
+    <span class="header-user">{{ user | uppercase }}</span>
+    <button nz-button nzType="primary">
+      <span><img src="../../../assets/icons/logout.svg" alt="Logout" /></span>
+      Logout
+    </button>
+  </div>
+</header>

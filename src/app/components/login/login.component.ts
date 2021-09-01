@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       ],
     });
 
-    this.users = this.usersService.getUser();
+    this.usersService.getUser().subscribe((users) => (this.users = users));
   }
 
   get email() {

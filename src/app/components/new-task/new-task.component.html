@@ -21,6 +21,9 @@
           [formControl]="taskName"
           placeholder="Enter Task Name"
         />
+        <mat-error *ngIf="taskName.dirty && taskName.invalid"
+          >Task Name is invalid</mat-error
+        >
       </div>
 
       <div
@@ -91,13 +94,10 @@
     mat-dialog-actions
     class="d-flex justify-content-center justify-content-md-end"
   >
-    <button mat-stroked-button class="new-task-btn-alt">Cancel</button>
-    <button
-      mat-raised-button
-      (click)="addNewTask()"
-      mat-dialog-close
-      class="new-task-btn"
-    >
+    <button mat-stroked-button mat-dialog-close class="new-task-btn-alt">
+      Cancel
+    </button>
+    <button mat-raised-button (click)="addNewTask()" class="new-task-btn">
       Add Task
     </button>
   </div>

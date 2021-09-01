@@ -1,0 +1,12 @@
+<div class="wrapper d-flex justify-content-between">
+  <div>
+    <div class="date">{{ date | date: "d MMMM y" }}</div>
+    <div class="subtitle">
+      You have to keep up the pace to accomplish your task in time
+      <span><img src="../../../assets/icons/clock.svg" alt="Clock" /></span>
+    </div>
+  </div>
+  <button nz-button nzType="primary" (click)="onClick()">
+    Create New Task
+  </button>
+</div>
