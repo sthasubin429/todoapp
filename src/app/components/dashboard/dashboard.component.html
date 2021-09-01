@@ -9,7 +9,11 @@
       <app-sub-header (openNewTask)="openCreateNewTask()"></app-sub-header>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col">
+      <app-overview></app-overview>
+    </div>
+  </div>
   <div class="row">
     <div *ngFor="let task of taskList">
       {{ task.name }}

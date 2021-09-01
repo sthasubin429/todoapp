@@ -1,0 +1,12 @@
+.wrapper {
+  h1 {
+    font-weight: 400;
+  }
+  .overview-card {
+    background: white;
+    .card-content {
+      display: inline;
+      float: right;
+    }
+  }
+}
