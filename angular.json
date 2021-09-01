@@ -33,12 +33,7 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
-<<<<<<< HEAD
-              },
-              "src/_redirects"
-=======
               }
->>>>>>> staging
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
