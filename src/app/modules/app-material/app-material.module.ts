@@ -8,6 +8,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+
 import {
   NgxMatDatetimePickerModule,
   NgxMatTimepickerModule,
@@ -28,6 +31,8 @@ import {
     NgxMatNativeDateModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
+    MatCheckboxModule,
+    MatDividerModule,
   ],
   exports: [
     MatButtonModule,
@@ -40,6 +45,8 @@ import {
     NgxMatNativeDateModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
+    MatCheckboxModule,
+    MatDividerModule,
   ],
   providers: [MatDatepickerModule],
 })

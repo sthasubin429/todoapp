@@ -1,15 +1,17 @@
 @use '../../scss/variables.scss' as *;
 .wrapper {
+  padding: 20px 40px;
   h1 {
     font-weight: 400;
   }
+
   .overview-card {
     background: #ffffff;
     border: 1px solid #e3e3e3;
     border-radius: 10px;
     padding: 36px;
-    width: 310px;
-    //  margin: 10px;
+    flex: 0 1 380px;
+    margin: 10px 30px;
 
     .overview-img {
       width: 51px;

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid dashboard-wrapper">
   <div class="row">
     <div class="col">
       <app-header></app-header>
@@ -15,8 +15,8 @@
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let task of taskList">
-      {{ task.name }}
+    <div class="col-12 col-md-6 col-xl-5">
+      <app-today-task></app-today-task>
     </div>
   </div>
 </div>

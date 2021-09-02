@@ -53,6 +53,7 @@ export class NewTaskComponent implements OnInit {
       list: this.listControl.value,
       priority: this.priorityControl.value,
       dateTime: this.dateControl.value,
+      status: false,
     };
 
     console.log(newTask);
@@ -60,7 +61,7 @@ export class NewTaskComponent implements OnInit {
 
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
-        this.data.taskList.push(task);
+        this.dialog.closeAll();
       });
       this.dialog.closeAll();
     }
