@@ -1,0 +1,68 @@
+<div>
+  <header class="d-flex justify-content-between">
+    <h1>List Names</h1>
+    <button nz-button nzType="default">Create new list</button>
+  </header>
+  <div class="list-names-wrapper">
+    <div class="list-names" *ngFor="let list of listNames">
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title class="panel-header"
+              >{{ list }}
+              <span>
+                {{ getListNames(list).length }}
+              </span></mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <div class="panel-content-wrapper">
+            <div *ngFor="let task of getListNames(list)" class="panel-loop">
+              <div
+                class="
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                  flex-wrap
+                  panel-content
+                "
+              >
+                <mat-checkbox
+                  class="panel-checkbox col-12 col-sm-6 col-md-12 col-lg-6"
+                  [(ngModel)]="task.status"
+                >
+                  <h3 class="text-wrap">{{ task.name }}</h3>
+                </mat-checkbox>
+
+                <p
+                  class="priority"
+                  [ngClass]="{
+                    'priority-high': task.priority === 'High',
+                    'priority-medium': task.priority === 'Medium',
+                    'priority-low': task.priority === 'Low'
+                  }"
+                >
+                  {{ task.priority }}
+                </p>
+                <p class="panel-dateTime">
+                  {{ task.dateTime | date: "d MMMM hh:mm aaa" }}
+                </p>
+              </div>
+              <mat-divider
+                [ngStyle]="{ padding: '0 24px' }"
+                class="panel-content-divider"
+              ></mat-divider>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-divider
+        [ngStyle]="{ padding: '0 24px' }"
+        class="panel-divider"
+      ></mat-divider>
+    </div>
+  </div>
+</div>

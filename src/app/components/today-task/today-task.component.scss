@@ -1,71 +1,69 @@
 @use '../../scss/variables.scss' as *;
 
-.wrapper {
-  padding: 20px 40px;
-  h1 {
-    font-weight: 400;
-    span {
-      margin-left: 16px;
-      background: rgba(190, 38, 59, 0.05);
-      padding: 4px 12px;
-      border-radius: 50%;
-      color: $color-primary;
-    }
+h1 {
+  font-weight: 400;
+  margin-bottom: 28px;
+  span {
+    margin-left: 16px;
+    background: rgba(190, 38, 59, 0.05);
+    padding: 4px 12px;
+    border-radius: 50%;
+    color: $color-primary;
   }
-  .today-tasks-wrapper {
-    background: #fff;
-    border: 1px solid #e3e3e3;
-    border-radius: 10px;
-    padding: 28px;
+}
+.today-tasks-wrapper {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 28px;
 
-    .today-tasks {
-      padding: 10px;
-      margin: 5px 0;
+  .today-tasks {
+    padding: 10px;
+    margin: 5px 0;
 
-      .today-text {
-        margin-left: 16px;
-        * {
-          font-weight: 400;
-        }
-
-        p {
-          font-size: 14px;
-          color: $color-text-secondary;
-        }
-      }
-      .priority {
-        font-size: 14px;
-        font-style: normal;
+    .today-text {
+      margin-left: 16px;
+      * {
         font-weight: 400;
-        line-height: 22px;
-        letter-spacing: 0px;
-        text-align: left;
-
-        padding: 6px 12px;
-
-        height: 34px;
-
-        border-radius: 5px;
-      }
-      .priority-high {
-        color: $color-error;
-        background: rgba(235, 87, 87, 0.05);
-      }
-      .priority-medium {
-        color: $color-sucess;
-        background: rgba(33, 150, 83, 0.05);
       }
 
-      .priority-low {
-        color: $color-warning;
-        background: rgba(242, 153, 74, 0.05);
+      p {
+        font-size: 14px;
+        color: $color-text-secondary;
       }
+    }
+    .priority {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
 
-      &:last-child {
-        margin-bottom: -20px;
-        mat-divider {
-          display: none;
-        }
+      padding: 6px 12px;
+
+      height: 34px;
+
+      border-radius: 5px;
+    }
+    .priority-high {
+      color: $color-error;
+      background: rgba(235, 87, 87, 0.05);
+    }
+    .priority-medium {
+      color: $color-sucess;
+      background: rgba(33, 150, 83, 0.05);
+    }
+
+    .priority-low {
+      color: $color-warning;
+      background: rgba(242, 153, 74, 0.05);
+    }
+
+    &:last-child {
+      margin-bottom: -20px;
+      mat-divider {
+        display: none;
       }
     }
   }

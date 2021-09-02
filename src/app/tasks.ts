@@ -37,14 +37,14 @@ export const TaskList: Task[] = [
   },
   {
     name: 'Prepare PPT for e-commerce app',
-    list: 'College Work',
+    list: 'College work',
     priority: 'Low',
     dateTime: '2021-08-31T16:49',
     status: false,
   },
   {
     name: 'Prepare PPT for e-commerce app',
-    list: 'College Work',
+    list: 'College work',
     priority: 'Low',
     dateTime: '2021-08-31T16:49',
     status: false,
