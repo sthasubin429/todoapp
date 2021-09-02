@@ -1,0 +1,29 @@
+<h1>
+  Today's Task <span> {{ taskList.length }} </span>
+</h1>
+<div class="today-tasks-wrapper">
+  <div class="today-tasks" *ngFor="let task of taskList">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-start">
+        <mat-checkbox class="task-checkbox" [(ngModel)]="task.status">
+        </mat-checkbox>
+        <div class="today-text">
+          <h3>{{ task.name }}</h3>
+          <p>{{ task.list }}</p>
+        </div>
+      </div>
+      <div
+        class="priority"
+        [ngClass]="{
+          'priority-high': task.priority === 'High',
+          'priority-medium': task.priority === 'Medium',
+          'priority-low': task.priority === 'Low'
+        }"
+      >
+        {{ task.priority }}
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+  </div>
+</div>

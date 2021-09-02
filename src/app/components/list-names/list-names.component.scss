@@ -1,0 +1,120 @@
+@use '../../scss/variables.scss' as *;
+
+header {
+  margin-bottom: 24px;
+  h1 {
+    font-weight: 400;
+  }
+  [nz-button] {
+    width: 155px;
+    height: 40px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    border: 1px solid $color-primary;
+    color: $color-primary;
+    border-radius: 5px;
+    background-color: $color-background;
+  }
+}
+
+.list-names-wrapper {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  padding: 20px 24px;
+  width: 100%;
+  .list-names {
+    .panel-header {
+      font-size: 18px;
+      line-height: 26px;
+      font-style: normal;
+      font-weight: normal;
+      span {
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+        border-radius: 50%;
+        background: rgba(251, 220, 211, 0.25);
+        color: $color-primary;
+        display: grid;
+        place-items: center;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+    .panel-content-wrapper {
+      background: #fff;
+      border: 1px solid #e3e3e3;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 12px;
+
+      .panel-content {
+        .panel-checkbox {
+          //  width: 50%;
+          color: $color-primary;
+          h3 {
+            margin-top: 10px;
+            font-weight: 400;
+          }
+        }
+
+        .priority {
+          margin-top: 10px;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 22px;
+          letter-spacing: 0px;
+          text-align: left;
+
+          padding: 6px 12px;
+
+          border-radius: 5px;
+        }
+        .priority-high {
+          color: $color-error;
+          background: rgba(235, 87, 87, 0.05);
+        }
+        .priority-medium {
+          color: $color-sucess;
+          background: rgba(33, 150, 83, 0.05);
+        }
+
+        .priority-low {
+          color: $color-warning;
+          background: rgba(242, 153, 74, 0.05);
+        }
+
+        .panel-dateTime {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    &:last-child {
+      .panel-divider {
+        display: none;
+      }
+    }
+  }
+}
+.panel-loop:last-child {
+  margin-bottom: -10px;
+  .panel-content-divider {
+    display: none;
+  }
+}
+:host ::ng-deep .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+:host ::ng-deep .mat-expansion-panel-header {
+  padding: 0 8px;
+}
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0;
+}

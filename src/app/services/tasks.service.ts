@@ -31,4 +31,49 @@ export class TasksService {
     TaskList.push(task);
     return of(task);
   }
+  getListNames(): Observable<string[]> {
+    let listNames = [...new Set(TaskList.map((task) => task.list))];
+    return of(listNames);
+  }
+
+  getListTasks(listName: string): Observable<Task[]> {
+    let filteredList = TaskList.filter((task) => task.list === listName);
+
+    return of(filteredList);
+  }
 }
+
+//Priority Shorting funciton doesnot add tasks on adding tasks
+//   priorityOrder = ['High', 'Medium', 'Low'];
+
+//   getTasks(): Observable<Task[]> {
+//     let taskList = [...TaskList];
+//     taskList = taskList.sort((a, b) => {
+//       return (
+//         this.priorityOrder.indexOf(a.priority) -
+//         this.priorityOrder.indexOf(b.priority)
+//       );
+//     });
+
+//     return of(taskList);
+//   }
+//   addTask(task: Task): Observable<Task> {
+//     TaskList.push(task);
+//     return of(task);
+//   }
+//   getListNames(): Observable<string[]> {
+//     let listNames = [...new Set(TaskList.map((task) => task.list))];
+//     return of(listNames);
+//   }
+
+//   getListTasks(listName: string): Observable<Task[]> {
+//     let filteredList = TaskList.filter((task) => task.list === listName);
+//     filteredList = filteredList.sort((a, b) => {
+//       return (
+//         this.priorityOrder.indexOf(a.priority) -
+//         this.priorityOrder.indexOf(b.priority)
+//       );
+//     });
+
+//     return of(filteredList);
+//   }
