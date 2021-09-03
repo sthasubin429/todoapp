@@ -1,4 +1,5 @@
 @use '../../scss/variables.scss' as *;
+@use '../../scss/mixins.scss' as mixins;
 
 .wrapper {
   height: 100vh;
@@ -17,7 +18,7 @@
       margin: 16px 18px;
 
       h1 {
-        font-weight: 550;
+        font-weight: 500;
         color: $color-primary;
         letter-spacing: 6px;
         margin: 8px 8px 20px 0;
@@ -28,6 +29,7 @@
       }
 
       form {
+        @include mixins.form-style();
         .form-group {
           position: relative;
           .form-input {
@@ -78,13 +80,8 @@
           //  }
         }
       }
-      .login-footer {
-        font-size: 13px;
-        line-height: 21px;
-        text-align: center;
-        a {
-          color: $color-primary;
-        }
+      .form-footer {
+        @include mixins.form-footer();
       }
       .login-footer {
         font-size: 13px;

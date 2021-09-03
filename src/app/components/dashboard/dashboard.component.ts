@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TasksService } from 'src/app/services/tasks.service';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { Task } from 'src/app/tasks';
+import { NewListComponent } from '../new-list/new-list.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,6 +19,13 @@ export class DashboardComponent implements OnInit {
 
   openCreateNewTask(): void {
     this.dialog.open(NewTaskComponent, {
+      width: '800px',
+      data: { taskList: this.taskList },
+    });
+  }
+
+  openCreateNewList(): void {
+    this.dialog.open(NewListComponent, {
       width: '800px',
       data: { taskList: this.taskList },
     });

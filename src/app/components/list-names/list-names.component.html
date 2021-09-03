@@ -1,7 +1,9 @@
 <div>
   <header class="d-flex justify-content-between">
     <h1>List Names</h1>
-    <button nz-button nzType="default">Create new list</button>
+    <button nz-button nzType="default" (click)="onClick()">
+      Create new list
+    </button>
   </header>
   <div class="list-names-wrapper">
     <div class="list-names" *ngFor="let list of listNames">

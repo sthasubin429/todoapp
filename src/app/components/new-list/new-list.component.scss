@@ -1,0 +1,45 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/mixins.scss';
+
+.newList-wrapper {
+  padding: 12px;
+  .newList-header {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  form {
+    @include mixins.form-style();
+  }
+  .invalid-text {
+    color: $color-error;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 12px 0 0 0;
+  }
+}
+
+.new-list-btn {
+  background-color: $color-primary;
+  color: white;
+  padding: 0 40px;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+.new-list-btn-alt {
+  color: $color-primary;
+  border: solid 1px $color-primary;
+  padding: 0 40px;
+  &:focus {
+    outline: none;
+    background-color: white;
+  }
+}
