@@ -29,6 +29,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { TodayTaskComponent } from './components/today-task/today-task.component';
 import { ListNamesComponent } from './components/list-names/list-names.component';
 import { NewListComponent } from './components/new-list/new-list.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 registerLocaleData(en);
 
@@ -46,6 +47,7 @@ registerLocaleData(en);
     TodayTaskComponent,
     ListNamesComponent,
     NewListComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     NzButtonModule,

@@ -1,5 +1,5 @@
-<header class="wrapper d-flex justify-content-between">
-  <h2 (click)="headerOnClick()">{{ title | uppercase }}</h2>
+<header class="d-flex justify-content-between">
+  <h1 routerLink="/home">{{ title | uppercase }}</h1>
   <div class="header-right">
     <span class="header-user">{{ user | uppercase }}</span>
     <button nz-button nzType="primary">

@@ -1,0 +1,137 @@
+@use './variables.scss' as *;
+
+@mixin center-container() {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: $color-background;
+  .wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 16px 16px $color-background-secondary;
+    //  padding-left: 12px;
+
+    .container-left {
+      padding: 24px;
+    }
+
+    .container-right {
+      content: "";
+      border-radius: 0 8px 8px 0;
+      background-color: $color-background;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+@mixin todo-header($add-margin: true) {
+  color: $color-primary;
+  letter-spacing: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  @if $add-margin {
+    margin: 8px 8px 20px 0;
+  } @else {
+    margin: 0;
+  }
+}
+
+@mixin form-title() {
+  margin: 8px 0;
+  h2 {
+    width: max-content;
+    font-size: 24px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $color-text-secondary;
+  }
+}
+
+@mixin form-style($include-icons: false) {
+  .form-group {
+    margin: 1.5rem 0;
+
+    .form-label {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: $color-text;
+      display: block;
+      margin: 4px 0;
+    }
+    .form-input {
+      width: 100%;
+      height: 48px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: solid 1px $color-text-secondary;
+    }
+
+    .form-input:focus {
+      //  background-color: $color-primary-100;
+      background-color: mix(white, $color-primary-100, 80%);
+      outline: none;
+      border: none;
+      box-shadow: 0 0 0 1px $color-primary;
+    }
+
+    .error-messages {
+      .text-error {
+        color: $color-error;
+      }
+      .text-sucess {
+        color: $color-sucess;
+      }
+      .invalid-text {
+        margin: 8px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        span {
+          margin: 4px;
+        }
+      }
+    }
+    @if $include-icons {
+      position: relative;
+      .form-input {
+        padding: 16px 16px 16px 36px;
+      }
+      .left-icon {
+        position: absolute;
+        color: $color-text-secondary;
+        top: 42px;
+        left: 16px;
+        font-size: 14px;
+      }
+      .right-icon {
+        position: absolute;
+        color: $color-text-secondary;
+        top: 44px;
+        right: 16px;
+        font-size: 14px;
+      }
+      .right-icon-sucess {
+        color: $color-error;
+      }
+      .right-icon-sucess {
+        color: $color-sucess;
+      }
+    }
+  }
+}
+
+@mixin form-footer {
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: $color-text;
+  a {
+    color: $color-primary;
+  }
+}

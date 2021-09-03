@@ -1,11 +1,11 @@
 @use '../../scss/variables.scss' as *;
+@use '../../scss/mixins.scss' as mixins;
 header {
   width: 100%;
   background-color: white;
-  h2 {
-    color: $color-primary;
-    letter-spacing: 6px;
-    cursor: pointer;
+  padding: 40px;
+  h1 {
+    @include mixins.todo-header(false);
   }
 
   .header-user {
