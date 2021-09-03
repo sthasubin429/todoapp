@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, EventEmitter, OnInit } from '@angular/core';
 import {
   FormControl,
   Validators,

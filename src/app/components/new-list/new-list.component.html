@@ -1,0 +1,37 @@
+<div class="newList-wrapper">
+  <h1 class="newList-header">
+    Create List <span> <i class="fas fa-times" mat-dialog-close></i></span>
+  </h1>
+
+  <div mat-dialog-content>
+    <form [formGroup]="newListForm" (ngSubmit)="addNewList()">
+      <div class="form-group">
+        <label for="listName" class="form-label">List name</label>
+        <input
+          type="text"
+          name="listName"
+          formControlName="listName"
+          class="form-input"
+          placeholder="Enter list name"
+        />
+        <div
+          *ngIf="(newListName.invalid && !newListName.pristine) || submit"
+          class="invalid-text"
+        >
+          {{ getErrorMessage() }}
+        </div>
+      </div>
+    </form>
+  </div>
+  <div
+    mat-dialog-actions
+    class="d-flex justify-content-center justify-content-md-end"
+  >
+    <button mat-stroked-button mat-dialog-close class="new-list-btn-alt">
+      Cancel
+    </button>
+    <button mat-raised-button (click)="addNewList()" class="new-list-btn">
+      Add Task
+    </button>
+  </div>
+</div>

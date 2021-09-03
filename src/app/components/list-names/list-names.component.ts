@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { faFontAwesomeAlt } from '@fortawesome/free-brands-svg-icons';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
 @Component({
@@ -11,6 +10,8 @@ export class ListNamesComponent implements OnInit {
   panelOpenState = false;
   listNames = [];
   constructor(private tasksService: TasksService) {}
+
+  @Output() openNewList = new EventEmitter();
 
   ngOnInit(): void {
     this.tasksService
@@ -24,5 +25,9 @@ export class ListNamesComponent implements OnInit {
       .getListTasks(listName)
       .subscribe((listTask) => (taskList = listTask));
     return taskList;
+  }
+
+  onClick() {
+    this.openNewList.emit();
   }
 }
