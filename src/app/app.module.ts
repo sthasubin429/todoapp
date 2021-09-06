@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
 
@@ -30,6 +32,9 @@ import { TodayTaskComponent } from './components/today-task/today-task.component
 import { ListNamesComponent } from './components/list-names/list-names.component';
 import { NewListComponent } from './components/new-list/new-list.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SetPasswordComponent } from './components/set-password/set-password.component';
 
 registerLocaleData(en);
 
@@ -48,10 +53,14 @@ registerLocaleData(en);
     ListNamesComponent,
     NewListComponent,
     ResetPasswordComponent,
+    SignupPageComponent,
+    SignupComponent,
+    SetPasswordComponent,
   ],
   imports: [
     NzButtonModule,
     MDBBootstrapModule.forRoot(),
+    NgxIntlTelInputModule,
     BrowserModule,
     AppMaterialModule,
 

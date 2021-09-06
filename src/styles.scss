@@ -66,3 +66,9 @@ h3 {
   line-height: 22px;
   color: $color-text-secondary;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";

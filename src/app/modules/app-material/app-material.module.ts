@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
 
 import {
   NgxMatDatetimePickerModule,
@@ -35,6 +36,7 @@ import {
     MatCheckboxModule,
     MatDividerModule,
     MatExpansionModule,
+    MatRadioModule,
   ],
   exports: [
     MatButtonModule,
@@ -50,6 +52,7 @@ import {
     MatCheckboxModule,
     MatDividerModule,
     MatExpansionModule,
+    MatRadioModule,
   ],
   providers: [MatDatepickerModule],
 })
