@@ -9,6 +9,7 @@ import {
 import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
 import { PhoneValidator } from 'src/app/Validator/phoneValidators.validator';
 import { Router, UrlSerializer } from '@angular/router';
+import { SignupService } from 'src/app/services/signup.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -24,7 +25,7 @@ export class SignupComponent implements OnInit {
   name = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
-    Validators.pattern(/^[a-zA-Z]+$/),
+    Validators.pattern(/^[ a-zA-Z]+$/),
   ]);
 
   gender = new FormControl('', [Validators.required]);
@@ -38,7 +39,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private serializer: UrlSerializer
+    private serializer: UrlSerializer,
+    private signupService: SignupService
   ) {}
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group(
@@ -60,13 +62,16 @@ export class SignupComponent implements OnInit {
 
     console.log(this.signUpForm.value);
     console.log(this.signUpForm.valid);
+    console.log(this.signUpForm);
+    console.log(this.signUpForm.errors);
 
     if (this.signUpForm.valid) {
-      const tree = this.router.createUrlTree(['signUp/setPassword'], {
-        queryParams: this.signUpForm.value,
-      });
-      console.log(this.serializer.serialize(tree));
-      this.router.navigateByUrl(this.serializer.serialize(tree));
+      // const tree = this.router.createUrlTree(['signUp/setPassword'], {
+      //   queryParams: this.signUpForm.value,
+      // });
+      // console.log(this.serializer.serialize(tree));
+      this.signupService.setSignUpData(this.signUpForm.value);
+      this.router.navigateByUrl('signUp/setPassword');
     }
   }
 }

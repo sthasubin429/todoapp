@@ -3,44 +3,60 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task, TaskList } from '../tasks';
 
-//for local json server
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'Content-Type': 'application/json',
-//   }),
-// };
+// for local json server
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class TasksService {
   //For local json server
-  //   private apiUrl = 'http://localhost:5000/tasks';
-  //   constructor(private http: HttpClient) {}
-  //   getTasks(): Observable<Task[]> {
-  //     return this.http.get<Task[]>(this.apiUrl);
-  //   }
-  //   addTask(task: Task): Observable<Task> {
-  //     return this.http.post<Task>(this.apiUrl, task, httpOptions);
-  //   }
+  private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/tasks';
+  constructor(private http: HttpClient) {}
   getTasks(): Observable<Task[]> {
-    let taskList = of(TaskList);
-    return taskList;
+    return this.http.get<Task[]>(this.apiUrl);
   }
   addTask(task: Task): Observable<Task> {
-    TaskList.push(task);
-    return of(task);
+    return this.http.post<Task>(this.apiUrl, task, httpOptions);
   }
   getListNames(): Observable<string[]> {
     let listNames = [...new Set(TaskList.map((task) => task.list))];
+    //  let temp: Task[];
+    //  this.getTasks().subscribe((task) => (temp = task));
+    //  let listNames = [...new Set(temp.map((task) => task.list))];
     return of(listNames);
   }
 
   getListTasks(listName: string): Observable<Task[]> {
+    //  let temp: Task[];
+    //  this.getTasks().subscribe((task) => (temp = task));
+    //  let filteredList = temp.filter((task) => task.list === listName);
     let filteredList = TaskList.filter((task) => task.list === listName);
 
     return of(filteredList);
   }
+  //   getTasks(): Observable<Task[]> {
+  //     let taskList = of(TaskList);
+  //     return taskList;
+  //   }
+  //   addTask(task: Task): Observable<Task> {
+  //     TaskList.push(task);
+  //     return of(task);
+  //   }
+  //   getListNames(): Observable<string[]> {
+  //     let listNames = [...new Set(TaskList.map((task) => task.list))];
+  //     return of(listNames);
+  //   }
+
+  //   getListTasks(listName: string): Observable<Task[]> {
+  //     let filteredList = TaskList.filter((task) => task.list === listName);
+
+  //     return of(filteredList);
+  //   }
 }
 
 //Priority Shorting funciton doesnot add tasks on adding tasks

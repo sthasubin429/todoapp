@@ -8,13 +8,9 @@ import { Observable, of } from 'rxjs';
 })
 export class UsersService {
   //with local json server
-  //   private apiUrl = 'http://localhost:5000/users';
-  //   constructor(private http: HttpClient) {}
-  //   getUser(): Observable<User[]> {
-  //     return this.http.get<User[]>(this.apiUrl);
-  //   }
+  private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/users';
+  constructor(private http: HttpClient) {}
   getUser(): Observable<User[]> {
-    const userList = of(UserList);
-    return userList;
+    return this.http.get<User[]>(this.apiUrl);
   }
 }
