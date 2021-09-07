@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
 import { UsersService } from 'src/app/services/users.service';
-import { UserList, User } from 'src/app/user';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-login',

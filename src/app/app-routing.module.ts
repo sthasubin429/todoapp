@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'resetPassword', component: ResetPasswordComponent },
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
   {
     path: 'signUp',
     component: SignupPageComponent,

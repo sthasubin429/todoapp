@@ -35,6 +35,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { EmailSentComponent } from './components/email-sent/email-sent.component';
 
 registerLocaleData(en);
 
@@ -56,6 +58,8 @@ registerLocaleData(en);
     SignupPageComponent,
     SignupComponent,
     SetPasswordComponent,
+    ForgotPasswordComponent,
+    EmailSentComponent,
   ],
   imports: [
     NzButtonModule,

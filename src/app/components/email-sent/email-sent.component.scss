@@ -1,0 +1,29 @@
+@use '../../scss/variables.scss' as *;
+
+.emailSent-wrapper {
+  padding: 32px;
+  img {
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-text-alt;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  [nz-button] {
+    background-color: $color-primary;
+    border: none;
+    padding: 12px 40px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+}
