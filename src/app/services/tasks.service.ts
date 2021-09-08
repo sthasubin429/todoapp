@@ -35,6 +35,7 @@ export class TasksService {
     //  let temp: Task[];
     //  this.getTasks().subscribe((task) => (temp = task));
     //  let filteredList = temp.filter((task) => task.list === listName);
+
     let filteredList = TaskList.filter((task) => task.list === listName);
 
     return of(filteredList);

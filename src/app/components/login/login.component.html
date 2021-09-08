@@ -1,9 +1,12 @@
-<div class="wrapper">
-  <div class="login-container d-flex flex-column flex-md-row">
-    <div class="form">
-      <h1>TODO APP</h1>
-      <h2>Login to your account</h2>
-      <p class="subtitle">Welcome back! please login to your account</p>
+<div class="login-wrapper">
+  <div class="wrapper d-flex flex-column flex-md-row">
+    <div class="container-left">
+      <h1 routerLink="/home">TODO APP</h1>
+      <div class="form-title">
+        <h2>Login to your account</h2>
+        <p>Welcome back! please login to your account</p>
+      </div>
+
       <form [formGroup]="myForm" (ngSubmit)="formSubmit()">
         <div class="form-group">
           <label for="email" class="form-label">Email address</label>
@@ -42,7 +45,7 @@
           <label for="password" class="form-label">Password</label>
           <fa-icon [icon]="faLock" class="left-icon"></fa-icon>
           <input
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             name="password"
             class="form-input"
             id="password"
@@ -92,7 +95,7 @@
         Not Registered yet? <a href="#">Create New account</a>
       </p>
     </div>
-    <div class="side-bar">
+    <div class="container-right">
       <img
         src="../../../assets/img/login-img.png"
         alt="Login Img"

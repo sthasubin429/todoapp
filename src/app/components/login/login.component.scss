@@ -1,33 +1,16 @@
 @use '../../scss/variables.scss' as *;
 @use '../../scss/mixins.scss' as mixins;
 
-.wrapper {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background-color: $color-background;
-
-  .login-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 16px 16px $color-background-secondary;
-
-    padding-left: 12px;
-
-    .form {
-      margin: 16px 18px;
-
+.login-wrapper {
+  @include mixins.center-container();
+  .wrapper {
+    .container-left {
       h1 {
-        font-weight: 500;
-        color: $color-primary;
-        letter-spacing: 6px;
-        margin: 8px 8px 20px 0;
+        @include mixins.todo-header();
       }
-      h2 {
-        width: max-content;
-        font-size: 24px;
+      .form-title {
+        @include mixins.form-title();
       }
-
       form {
         @include mixins.form-style();
         .form-group {
@@ -93,13 +76,10 @@
       }
     }
 
-    .side-bar {
-      content: "";
-      border-radius: 0 8px 8px 0;
-      background-color: $color-background;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .container-right {
+      img {
+        margin: 0 40px;
+      }
     }
   }
 }

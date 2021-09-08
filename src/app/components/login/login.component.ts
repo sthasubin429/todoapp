@@ -94,10 +94,5 @@ export class LoginComponent implements OnInit {
   }
   showHidePassword(): void {
     this.showPassword = !this.showPassword;
-    if (this.showPassword) {
-      document.querySelector('#password').setAttribute('type', 'text');
-    } else {
-      document.querySelector('#password').setAttribute('type', 'password');
-    }
   }
 }

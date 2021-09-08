@@ -33,7 +33,11 @@ export class SignupService {
 
   postSignUpData(data: {}): Observable<any> {
     console.log(data);
-    let returnValue = this.http.post<any>(this.apiUrl, data, httpOptions);
+    let returnValue = this.http.post<any>(
+      this.apiUrl,
+      JSON.stringify(data),
+      httpOptions
+    );
     console.log(returnValue);
     return returnValue;
   }

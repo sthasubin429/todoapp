@@ -1,4 +1,4 @@
-import { Component, Inject, EventEmitter, OnInit } from '@angular/core';
+import { Component, Inject, EventEmitter, OnInit, Input } from '@angular/core';
 import {
   FormControl,
   Validators,
@@ -61,6 +61,7 @@ export class NewTaskComponent implements OnInit {
 
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
+        this.data.taskList.push(task);
         this.dialog.closeAll();
       });
       this.dialog.closeAll();

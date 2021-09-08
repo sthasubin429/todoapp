@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
 @Component({
@@ -12,11 +12,15 @@ export class ListNamesComponent implements OnInit {
   constructor(private tasksService: TasksService) {}
 
   @Output() openNewList = new EventEmitter();
+  @Input() taskList: Task[];
 
   ngOnInit(): void {
     this.tasksService
       .getListNames()
       .subscribe((listName) => (this.listNames = listName));
+
+    //  this.listNames = [...new Set(this.taskList.map((task) => task.list))];
+    console.log(this.taskList);
   }
 
   getListNames(listName: string): Task[] {
@@ -25,6 +29,7 @@ export class ListNamesComponent implements OnInit {
       .getListTasks(listName)
       .subscribe((listTask) => (taskList = listTask));
     return taskList;
+    //  return this.taskList.filter((task) => task.list === listName);
   }
 
   onClick() {
