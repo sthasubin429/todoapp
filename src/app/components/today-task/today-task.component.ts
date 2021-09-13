@@ -11,6 +11,7 @@ export class TodayTaskComponent implements OnInit {
   constructor(private tasksService: TasksService) {}
   //   taskList: Task[];
   @Input() taskList: Task[];
+  @Input() animateChildren: boolean;
   ngOnInit(): void {
     //  this.tasksService.getTasks().subscribe((tasks) => (this.taskList = tasks));
   }

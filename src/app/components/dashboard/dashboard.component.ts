@@ -11,6 +11,7 @@ import { NewListComponent } from '../new-list/new-list.component';
 })
 export class DashboardComponent implements OnInit {
   taskList: Task[];
+  animateChildren = false;
   constructor(public dialog: MatDialog, private taskService: TasksService) {}
 
   ngOnInit(): void {
@@ -20,7 +21,9 @@ export class DashboardComponent implements OnInit {
   openCreateNewTask(): void {
     this.dialog.open(NewTaskComponent, {
       width: '800px',
-      data: { taskList: this.taskList },
+      data: {
+        taskList: this.taskList,
+      },
     });
   }
 
