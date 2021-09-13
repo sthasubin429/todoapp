@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import {
   NgxMatDatetimePickerModule,
@@ -37,6 +38,7 @@ import {
     MatDividerModule,
     MatExpansionModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatButtonModule,
@@ -53,6 +55,7 @@ import {
     MatDividerModule,
     MatExpansionModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
   ],
   providers: [MatDatepickerModule],
 })

@@ -81,14 +81,20 @@
           </div>
         </div>
         <div class="form-group">
+          <mat-spinner
+            diameter="32"
+            [color]="color"
+            *ngIf="loading"
+            [ngStyle]="{ margin: 'auto', overflow: 'inherit' }"
+          ></mat-spinner>
+
           <app-button
             width="370px"
             text="Login"
             (btnClick)="submitButton()"
             [disabled]="myForm.invalid"
+            *ngIf="!loading"
           ></app-button>
-
-          <div *ngIf="submit && !formValid" class="valid-text">Form Valid</div>
         </div>
       </form>
       <p class="form-footer">

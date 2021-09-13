@@ -14,6 +14,9 @@ import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vai
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/user';
 
+import { ThemePalette } from '@angular/material/core';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
   submit = false;
   formValid = false;
   showPassword = false;
+  loading = false;
 
   faExclamationCircle = faExclamationCircle;
   faEnvelope = faEnvelope;
@@ -37,7 +41,13 @@ export class LoginComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private fb: FormBuilder, private usersService: UsersService) {}
+  color: ThemePalette = 'accent';
+
+  constructor(
+    private fb: FormBuilder,
+    private usersService: UsersService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -73,21 +83,32 @@ export class LoginComponent implements OnInit {
   //Both gives same results through different process
 
   formSubmit(): void {
+    this.loading = true;
     this.submit = true;
+    setTimeout(this.checkValid.bind(this), 2000);
+
+    console.log(this.model.email, this.model.password);
+  }
+
+  checkValid() {
     for (let user of this.users) {
       if (
         this.model.email === user.email &&
         this.model.password === user.password
       ) {
         this.formValid = false;
+        this.loading = false;
+
+        this.router.navigateByUrl('dashboard');
+
         break;
       } else {
         this.formValid = true;
       }
     }
-
-    console.log(this.model.email, this.model.password);
+    this.loading = false;
   }
+
   submitButton(): void {
     console.log('Form Submitted');
     console.log(this.myForm.value);
