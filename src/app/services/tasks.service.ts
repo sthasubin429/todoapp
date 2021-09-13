@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { map, filter, tap } from 'rxjs/operators';
+
 import { Task, TaskList } from '../tasks';
 
 // for local json server
@@ -17,6 +19,7 @@ export class TasksService {
   //For local json server
   private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/tasks';
   constructor(private http: HttpClient) {}
+
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl);
   }
@@ -24,21 +27,24 @@ export class TasksService {
     return this.http.post<Task>(this.apiUrl, task, httpOptions);
   }
   getListNames(): Observable<string[]> {
-    let listNames = [...new Set(TaskList.map((task) => task.list))];
-    //  let temp: Task[];
-    //  this.getTasks().subscribe((task) => (temp = task));
-    //  let listNames = [...new Set(temp.map((task) => task.list))];
-    return of(listNames);
+    //  let listNames = [...new Set(TaskList.map((task) => task.list))];
+    //  //  let temp: Task[];
+    //  //  this.getTasks().subscribe((task) => (temp = task));
+    //  //  let listNames = [...new Set(temp.map((task) => task.list))];
+    //  return of(listNames);
+
+    return this.http
+      .get<Task[]>(this.apiUrl)
+      .pipe(map((tasks) => [...new Set(tasks.map((task) => task.list))]));
   }
 
-  getListTasks(listName: string): Observable<Task[]> {
-    //  let temp: Task[];
-    //  this.getTasks().subscribe((task) => (temp = task));
-    //  let filteredList = temp.filter((task) => task.list === listName);
+  getListTasks(listName: string) {
+    return this.http
+      .get<Task[]>(this.apiUrl)
+      .pipe(map((tasks) => tasks.filter((task) => task.list === listName)));
+    //  let filteredList = TaskList.filter((task) => task.list === listName);
 
-    let filteredList = TaskList.filter((task) => task.list === listName);
-
-    return of(filteredList);
+    //  return of(filteredList);
   }
   //   getTasks(): Observable<Task[]> {
   //     let taskList = of(TaskList);

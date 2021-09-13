@@ -24,12 +24,12 @@ export class ListNamesComponent implements OnInit {
   }
 
   getListNames(listName: string): Task[] {
-    let taskList = [];
-    this.tasksService
-      .getListTasks(listName)
-      .subscribe((listTask) => (taskList = listTask));
-    return taskList;
-    //  return this.taskList.filter((task) => task.list === listName);
+    //  let listTask = [];
+    //  this.tasksService
+    //    .getListTasks(listName)
+    //    .subscribe((listTask) => (listTask = listTask));
+    //  return listTask;
+    return this.taskList.filter((task) => task.list === listName);
   }
 
   onClick() {
