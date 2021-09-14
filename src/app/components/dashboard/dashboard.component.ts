@@ -12,10 +12,20 @@ import { NewListComponent } from '../new-list/new-list.component';
 export class DashboardComponent implements OnInit {
   taskList: Task[];
   animateChildren = false;
+  priorityOrder = ['High', 'Medium', 'Low'];
+
   constructor(public dialog: MatDialog, private taskService: TasksService) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => (this.taskList = tasks));
+    this.taskService.getTasks().subscribe(
+      (tasks) =>
+        (this.taskList = tasks.sort((a, b) => {
+          return (
+            this.priorityOrder.indexOf(a.priority) -
+            this.priorityOrder.indexOf(b.priority)
+          );
+        }))
+    );
   }
 
   openCreateNewTask(): void {
