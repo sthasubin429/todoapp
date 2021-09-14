@@ -8,13 +8,22 @@ import { SignupPageComponent } from './components/signup-page/signup-page.compon
 import { SignupComponent } from './components/signup/signup.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'resetPassword', component: ResetPasswordComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'resetPassword',
+    canActivate: [LoginGuard],
+    component: ResetPasswordComponent,
+  },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   {
     path: 'signUp',

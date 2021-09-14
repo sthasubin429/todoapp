@@ -99,6 +99,7 @@ export class LoginComponent implements OnInit {
         this.formValid = false;
         this.loading = false;
 
+        localStorage.setItem('loggedIn', 'True');
         this.router.navigateByUrl('dashboard');
 
         break;
@@ -107,6 +108,7 @@ export class LoginComponent implements OnInit {
       }
     }
     this.loading = false;
+    console.log('Use subin@hotmail.com : Password1');
   }
 
   submitButton(): void {

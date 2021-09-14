@@ -2,7 +2,7 @@
   <h1 routerLink="/home">{{ title | uppercase }}</h1>
   <div class="header-right">
     <span class="header-user">{{ user | uppercase }}</span>
-    <button nz-button nzType="primary">
+    <button nz-button nzType="primary" (click)="onClick()">
       <span><img src="../../../assets/icons/logout.svg" alt="Logout" /></span>
       Logout
     </button>
