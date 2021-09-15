@@ -7,6 +7,7 @@ import {
   FormControl,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ListsService } from 'src/app/services/lists.service';
 
 @Component({
   selector: 'app-new-list',
@@ -16,7 +17,11 @@ import { MatDialog } from '@angular/material/dialog';
 export class NewListComponent implements OnInit {
   newListForm!: FormGroup;
   submit = false;
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+    private listService: ListsService
+  ) {}
 
   newListName = new FormControl('', [
     Validators.required,
@@ -25,15 +30,17 @@ export class NewListComponent implements OnInit {
   ]);
   ngOnInit(): void {
     this.newListForm = this.fb.group({
-      listName: this.newListName,
+      list: this.newListName,
     });
   }
   addNewList(): void {
     console.log(this.newListForm.status);
     if (this.newListForm.valid) {
-      console.log(this.newListName.value);
-      //Todo Add new list anem in the list
+      console.log(this.newListForm.value);
+      this.listService.addListNames(this.newListForm.value);
       this.dialog.closeAll();
+
+      window.alert('List Added');
     } else {
       this.submit = true;
     }

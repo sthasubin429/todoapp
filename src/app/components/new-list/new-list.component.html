@@ -6,11 +6,11 @@
   <div mat-dialog-content>
     <form [formGroup]="newListForm" (ngSubmit)="addNewList()">
       <div class="form-group">
-        <label for="listName" class="form-label">List name</label>
+        <label for="list" class="form-label">List name</label>
         <input
           type="text"
-          name="listName"
-          formControlName="listName"
+          name="list"
+          formControlName="list"
           class="form-input"
           placeholder="Enter list name"
         />
@@ -31,7 +31,7 @@
       Cancel
     </button>
     <button mat-raised-button (click)="addNewList()" class="new-list-btn">
-      Add Task
+      Add List
     </button>
   </div>
 </div>

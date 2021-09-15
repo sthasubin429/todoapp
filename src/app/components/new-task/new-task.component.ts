@@ -8,6 +8,7 @@ import {
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ListsService } from 'src/app/services/lists.service';
 
 @Component({
   selector: 'app-new-task',
@@ -18,7 +19,7 @@ export class NewTaskComponent implements OnInit {
   addTaskForm!: FormGroup;
 
   listControl = new FormControl('', Validators.required);
-  lists: string[] = ['Personal', 'College', 'Work'];
+  lists = [];
 
   priorityControl = new FormControl('', Validators.required);
   priorities: string[] = ['High', 'Medium', 'Low'];
@@ -34,10 +35,14 @@ export class NewTaskComponent implements OnInit {
     private fb: FormBuilder,
     private taskService: TasksService,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private listService: ListsService
   ) {}
 
   ngOnInit(): void {
+    this.listService
+      .getListNames()
+      .subscribe((lists) => (this.lists = lists.map((list) => list.list)));
     this.addTaskForm = this.fb.group({
       taskName: this.taskName,
       priorityControl: this.priorityControl,
