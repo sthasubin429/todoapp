@@ -24,7 +24,9 @@ export class TasksService {
     return this.http.get<Task[]>(this.apiUrl);
   }
   addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.apiUrl, task, httpOptions);
+    let returnValue = this.http.post<Task>(this.apiUrl, task, httpOptions);
+    console.log(returnValue);
+    return returnValue;
   }
   getListNames(): Observable<string[]> {
     //  let listNames = [...new Set(TaskList.map((task) => task.list))];

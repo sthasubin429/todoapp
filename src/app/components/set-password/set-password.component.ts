@@ -14,6 +14,8 @@ import {
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { SignupService } from 'src/app/services/signup.service';
+import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/user';
 
 import {
   MatchPassword,
@@ -54,7 +56,7 @@ export class SetPasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private signupService: SignupService
+    private userService: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -65,9 +67,6 @@ export class SetPasswordComponent implements OnInit {
       },
       { validators: MatchPassword }
     );
-    this.signupService
-      .getSignUpData()
-      .subscribe((data) => (this.signupData = data));
   }
 
   showHidePassword(): void {
@@ -80,10 +79,14 @@ export class SetPasswordComponent implements OnInit {
     this.submit = true;
     if (this.setPasswordForm.valid) {
       console.log(this.setPasswordForm.value);
-      this.signupData['password'] = this.password.value;
-      this.signupService.postSignUpData(this.signupData);
-      console.log(this.signupData);
-      window.alert('Sign up Sucessful');
+      let signupObject: User = JSON.parse(localStorage.getItem('signupObject'));
+      signupObject.password = this.password.value;
+      console.log(signupObject);
+      // this.signupData['password'] = this.password.value;
+      // this.signupService.postSignUpData(this.signupData);
+      this.userService.addUser(signupObject);
+      // console.log(signupObject);
+      // window.alert('Sign up Sucessful');
     } else {
       console.log(this.setPasswordForm.value);
       window.alert('Password  invalid');

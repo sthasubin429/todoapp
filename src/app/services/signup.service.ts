@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../user';
 
 let signUpData = {};
 
@@ -17,23 +18,9 @@ export class SignupService {
   private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/users';
   constructor(private http: HttpClient) {}
 
-  getSignUpData(): Observable<any> {
-    let data = of(signUpData);
-    return data;
-  }
-
-  setSignUpData(data: {}): Observable<any> {
-    signUpData = data;
-    return of(signUpData);
-  }
-
-  resetSignUpData() {
-    signUpData = {};
-  }
-
-  postSignUpData(data: {}): Observable<any> {
+  postSignUpData(data: User): Observable<User> {
     console.log(data);
-    let returnValue = this.http.post<any>(
+    let returnValue = this.http.post<User>(
       this.apiUrl,
       JSON.stringify(data),
       httpOptions

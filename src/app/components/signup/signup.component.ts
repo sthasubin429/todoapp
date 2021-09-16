@@ -9,7 +9,7 @@ import {
 import { CustomEmailValidator } from 'src/app/Validator/customEmailValidator.vaidator';
 import { PhoneValidator } from 'src/app/Validator/phoneValidators.validator';
 import { Router, UrlSerializer } from '@angular/router';
-import { SignupService } from 'src/app/services/signup.service';
+import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private serializer: UrlSerializer,
-    private signupService: SignupService
+    private userService: UsersService
   ) {}
   ngOnInit(): void {
     this.signUpForm = this.formBuilder.group(
@@ -66,11 +66,11 @@ export class SignupComponent implements OnInit {
     console.log(this.signUpForm.errors);
 
     if (this.signUpForm.valid) {
-      // const tree = this.router.createUrlTree(['signUp/setPassword'], {
-      //   queryParams: this.signUpForm.value,
-      // });
-      // console.log(this.serializer.serialize(tree));
-      this.signupService.setSignUpData(this.signUpForm.value);
+      localStorage.setItem(
+        'signupObject',
+        JSON.stringify(this.signUpForm.value)
+      );
+
       this.router.navigateByUrl('signUp/setPassword');
     }
   }
