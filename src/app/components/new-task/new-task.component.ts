@@ -9,6 +9,7 @@ import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/tasks';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ListsService } from 'src/app/services/lists.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-new-task',
@@ -31,18 +32,25 @@ export class NewTaskComponent implements OnInit {
   ]);
   dateControl = new FormControl('', Validators.required);
 
+  triggerAnimation: boolean;
+
   constructor(
     private fb: FormBuilder,
     private taskService: TasksService,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private listService: ListsService
+    private listService: ListsService,
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
     this.listService
       .getListNames()
       .subscribe((lists) => (this.lists = lists.map((list) => list.list)));
+
+    this.dataService.currentAnimation.subscribe(
+      (animation) => (this.triggerAnimation = animation)
+    );
     this.addTaskForm = this.fb.group({
       taskName: this.taskName,
       priorityControl: this.priorityControl,
@@ -67,6 +75,7 @@ export class NewTaskComponent implements OnInit {
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
         this.data.taskList.unshift(task);
+        this.dataService.changeAnimationSubject();
         this.dialog.closeAll();
       });
       this.dialog.closeAll();
