@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -6,7 +6,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ListsService } from 'src/app/services/lists.service';
 
 @Component({
@@ -20,7 +20,8 @@ export class NewListComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private listService: ListsService
+    private listService: ListsService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   newListName = new FormControl('', [
@@ -38,6 +39,8 @@ export class NewListComponent implements OnInit {
     if (this.newListForm.valid) {
       console.log(this.newListForm.value);
       this.listService.addListNames(this.newListForm.value);
+      this.data.listNames.push(this.newListName.value);
+
       this.dialog.closeAll();
 
       window.alert('List Added');
