@@ -1,5 +1,5 @@
 @use '../../scss/variables.scss' as *;
-
+@use '../../scss/mixins.scss';
 h1 {
   font-weight: 400;
   margin-bottom: 28px;
@@ -10,6 +10,9 @@ h1 {
     border-radius: 50%;
     color: $color-primary;
   }
+}
+[nz-button] {
+  @include mixins.altButton();
 }
 .today-tasks-wrapper {
   background: #fff;

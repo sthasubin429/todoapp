@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, filter, tap } from 'rxjs/operators';
 
-import { Task, TaskList } from '../tasks';
+import { Task } from '../tasks';
 
 // for local json server
 const httpOptions = {
@@ -47,5 +47,10 @@ export class TasksService {
     //  let filteredList = TaskList.filter((task) => task.list === listName);
 
     //  return of(filteredList);
+  }
+  deleteTask(task: Task): Observable<Task> {
+    console.log(task);
+    console.log(task.id);
+    return this.http.delete<Task>(`${this.apiUrl}/${task.id}`);
   }
 }

@@ -24,6 +24,12 @@ import {
           opacity: 1,
         })
       ),
+      state(
+        'hide',
+        style({
+          opacity: 0,
+        })
+      ),
       transition(
         '* => *',
         animate(
@@ -38,16 +44,17 @@ import {
   ],
 })
 export class TodayTaskComponent implements OnInit {
+  showDel: boolean = false;
+
   constructor(
     private tasksService: TasksService,
     private dataService: DataService
   ) {}
 
-  triggerAnimation: boolean = false;
+  triggerAnimation: string = 'show';
   //   taskList: Task[];
   @Input() taskList: Task[];
   @Input() animateChildren: boolean;
-
   get stateName() {
     return this.triggerAnimation ? 'show' : 'hide';
   }
@@ -57,5 +64,32 @@ export class TodayTaskComponent implements OnInit {
     this.dataService.currentAnimation.subscribe(
       (animation) => (this.triggerAnimation = animation)
     );
+    this.dataService.changeAnimationSubject('show');
+  }
+
+  checkStaus(): boolean {
+    let arr = [
+      ...new Set(this.taskList.filter((task) => task.status === true)),
+    ];
+
+    return arr.length > 0;
+  }
+
+  onClick() {
+    let deleteTask = this.taskList.filter((task) => task.status === true);
+    console.log(deleteTask);
+    for (let task of deleteTask) {
+      console.log(task);
+      this.tasksService.deleteTask(task).subscribe(() => {
+        //   this.taskList = this.taskList.filter((t) => t.id !== task.id);
+        this.taskList.forEach((t, index) => {
+          if (t.id === task.id) {
+            this.taskList.splice(index, 1);
+          }
+        });
+
+        console.log(this.taskList);
+      });
+    }
   }
 }

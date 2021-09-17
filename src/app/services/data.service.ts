@@ -5,11 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private animationSubject = new BehaviorSubject<boolean>(false);
+  private animationSubject = new BehaviorSubject<string>('show');
   currentAnimation = this.animationSubject.asObservable();
   constructor() {}
 
-  changeAnimationSubject() {
-    this.animationSubject.next(!this.animationSubject.value);
+  changeAnimationSubject(state: string) {
+    this.animationSubject.next(state);
   }
 }

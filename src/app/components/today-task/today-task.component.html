@@ -1,11 +1,18 @@
-<h1>
-  Today's Task <span> {{ taskList.length }} </span>
-</h1>
+<div class="d-flex justify-content-between">
+  <h1>
+    Today's Task <span> {{ taskList.length }} </span>
+  </h1>
+
+  <button nz-button nzType="default" *ngIf="checkStaus()" (click)="onClick()">
+    Delete Task
+  </button>
+</div>
+
 <div class="today-tasks-wrapper">
   <div
     class="today-tasks"
     *ngFor="let task of taskList"
-    [@popOverState]="stateName"
+    [@popOverState]="triggerAnimation"
   >
     <div class="d-flex justify-content-between">
       <div class="d-flex justify-content-start">

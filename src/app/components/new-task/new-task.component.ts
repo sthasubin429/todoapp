@@ -32,7 +32,7 @@ export class NewTaskComponent implements OnInit {
   ]);
   dateControl = new FormControl('', Validators.required);
 
-  triggerAnimation: boolean;
+  triggerAnimation: string;
 
   constructor(
     private fb: FormBuilder,
@@ -67,6 +67,7 @@ export class NewTaskComponent implements OnInit {
       priority: this.priorityControl.value,
       dateTime: this.dateControl.value,
       status: false,
+      id: Math.random(),
     };
 
     console.log(newTask);
@@ -75,7 +76,7 @@ export class NewTaskComponent implements OnInit {
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {
         this.data.taskList.unshift(task);
-        this.dataService.changeAnimationSubject();
+        this.dataService.changeAnimationSubject('show');
         this.dialog.closeAll();
       });
       this.dialog.closeAll();
