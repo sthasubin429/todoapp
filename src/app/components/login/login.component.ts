@@ -101,6 +101,15 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('loggedIn', 'True');
         this.router.navigateByUrl('dashboard');
+        let loginData = {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          dob: user.dob,
+          gender: user.gender,
+          phone: user.phone,
+        };
+        localStorage.setItem('loginData', JSON.stringify(loginData));
 
         break;
       } else {

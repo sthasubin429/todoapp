@@ -37,6 +37,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { EmailSentComponent } from './components/email-sent/email-sent.component';
+import { NameInitialsPipe } from './pipes/name-initials.pipe';
 
 registerLocaleData(en);
 
@@ -60,6 +61,7 @@ registerLocaleData(en);
     SetPasswordComponent,
     ForgotPasswordComponent,
     EmailSentComponent,
+    NameInitialsPipe,
   ],
   imports: [
     NzButtonModule,
