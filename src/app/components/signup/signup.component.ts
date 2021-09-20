@@ -29,11 +29,8 @@ export class SignupComponent implements OnInit {
   ]);
 
   gender = new FormControl('', [Validators.required]);
-  date = new FormControl('', [Validators.required]);
-  signUpEmail = new FormControl('', [
-    Validators.required,
-    CustomEmailValidator,
-  ]);
+  dob = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, CustomEmailValidator]);
 
   phone = new FormControl('', [Validators.required]);
   constructor(
@@ -47,8 +44,8 @@ export class SignupComponent implements OnInit {
       {
         name: this.name,
         gender: this.gender,
-        date: this.date,
-        signUpEmail: this.signUpEmail,
+        dob: this.dob,
+        email: this.email,
         phone: this.phone,
       },
       {

@@ -97,7 +97,7 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" [formControl]="date" />
+            <input matInput [matDatepicker]="picker" [formControl]="dob" />
             <mat-datepicker-toggle
               matSuffix
               [for]="picker"
@@ -105,10 +105,10 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-          <div class="error-messages" *ngIf="date.dirty || submit">
+          <div class="error-messages" *ngIf="dob.dirty || submit">
             <div
               class="invalid-text text-error"
-              *ngIf="date.hasError('required')"
+              *ngIf="dob.hasError('required')"
             >
               <span>
                 <fa-icon
@@ -168,14 +168,14 @@
             class="form-input"
             id="email"
             placeholder="Enter Yout Email"
-            name="signUpEmail"
-            formControlName="signUpEmail"
+            name="email"
+            formControlName="email"
           />
 
-          <div class="error-messages" *ngIf="signUpEmail.dirty || submit">
+          <div class="error-messages" *ngIf="email.dirty || submit">
             <div
               class="invalid-text text-error"
-              *ngIf="signUpEmail.hasError('required')"
+              *ngIf="email.hasError('required')"
             >
               <span>
                 <fa-icon
@@ -188,7 +188,7 @@
 
             <div
               class="invalid-text text-error"
-              *ngIf="signUpEmail.hasError('customEmailCheck')"
+              *ngIf="email.hasError('customEmailCheck')"
             >
               <span>
                 <fa-icon

@@ -5,6 +5,8 @@ import {
   FormGroup,
   FormBuilder,
 } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 import {
   faLock,
@@ -44,6 +46,9 @@ export class SetPasswordComponent implements OnInit {
   submit = false;
   signupData = {};
 
+  loading = false;
+  color: ThemePalette = 'accent';
+
   password = new FormControl('', [
     Validators.required,
     Validators.minLength(8),
@@ -56,7 +61,8 @@ export class SetPasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UsersService
+    private userService: UsersService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -82,14 +88,31 @@ export class SetPasswordComponent implements OnInit {
       let signupObject: User = JSON.parse(localStorage.getItem('signupObject'));
       signupObject.password = this.password.value;
       console.log(signupObject);
-      // this.signupData['password'] = this.password.value;
-      // this.signupService.postSignUpData(this.signupData);
-      this.userService.addUser(signupObject);
-      // console.log(signupObject);
-      // window.alert('Sign up Sucessful');
+
+      this.userService.addUser(signupObject).subscribe((res) => {
+        console.log(res);
+        let loginData = {
+          id: res.id,
+          email: res.email,
+          name: res.name,
+          dob: res.dob,
+          gender: res.gender,
+          phone: res.phone,
+        };
+        localStorage.setItem('loginData', JSON.stringify(loginData));
+      });
+      localStorage.setItem('loggedIn', 'True');
+      localStorage.removeItem('signupObject');
+      this.loading = true;
+      setTimeout(this.navigate.bind(this), 2000);
     } else {
       console.log(this.setPasswordForm.value);
       window.alert('Password  invalid');
     }
+  }
+
+  navigate(): void {
+    this.loading = false;
+    this.router.navigateByUrl('dashboard');
   }
 }
