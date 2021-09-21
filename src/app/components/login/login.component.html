@@ -59,13 +59,10 @@
             class="right-icon right-icon-password"
             (click)="showHidePassword()"
           ></fa-icon>
-          <!-- <fa-icon
-            [icon]="faEyeSlash"
-            class="right-icon right-icon-password"
-          ></fa-icon> -->
-
           <div>
-            <a class="forgot-password" href="/login">Forgot Password?</a>
+            <a class="forgot-password" routerLink="/forgotPassword"
+              >Forgot Password?</a
+            >
           </div>
 
           <div
@@ -98,7 +95,7 @@
         </div>
       </form>
       <p class="form-footer">
-        Not Registered yet? <a href="#">Create New account</a>
+        Not Registered yet? <a routerLink="/signUp">Create New account</a>
       </p>
     </div>
     <div class="container-right">
@@ -110,6 +107,4 @@
       />
     </div>
   </div>
-
-  <!-- {{ myForm.value | json }} -->
 </div>

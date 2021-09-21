@@ -12,31 +12,10 @@
         @include mixins.form-title();
       }
       form {
-        @include mixins.form-style();
+        @include mixins.form-style(true);
         .form-group {
-          position: relative;
-          .form-input {
-            padding: 16px 16px 16px 36px;
-          }
-          .left-icon {
-            position: absolute;
-            color: $color-text-secondary;
-            top: 42px;
-            left: 16px;
-            font-size: 14px;
-          }
-          .right-icon {
-            position: absolute;
-            color: $color-error;
-            top: 44px;
-            right: 16px;
-            font-size: 14px;
-          }
           .right-icon-password {
             color: $color-text-secondary;
-          }
-          .right-icon-sucess {
-            color: $color-sucess;
           }
           .forgot-password {
             color: $color-primary;
@@ -51,11 +30,6 @@
             line-height: 21px;
             padding: 12px 0 0 2px;
           }
-
-          //  .btn-login {
-          //    padding: 12px 165px;
-          //    margin-top: 2rem;
-          //  }
         }
       }
       .form-footer {
