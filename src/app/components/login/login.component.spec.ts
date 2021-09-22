@@ -89,7 +89,6 @@ describe('LoginComponent', () => {
 
     expect(component.submit).toEqual(true);
     expect(component.formValid).toEqual(true);
-    //  expect(component.myForm.valid).toBeFalsy();
 
     let test = de.queryAll(By.css('.invalid-text'));
     let errors = [
@@ -124,5 +123,39 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     expect(component.myForm.valid).toBeFalse();
     expect(component.myForm.invalid).toBeTrue();
+  }));
+
+  it('should check invalid cases for form input', fakeAsync(() => {
+    expect(component.myForm.controls['email'].valid).toBeFalse();
+    expect(component.myForm.controls['password'].valid).toBeFalse();
+
+    component.myForm.controls['email'].setValue('subin@hotmail');
+    component.myForm.controls['password'].setValue('password');
+
+    flush();
+    fixture.detectChanges();
+
+    expect(component.myForm.controls['email'].valid).toBeFalse();
+    expect(component.myForm.controls['email'].invalid).toBeTrue();
+    
+    expect(component.myForm.controls['password'].valid).toBeFalse();
+    expect(component.myForm.controls['password'].invalid).toBeTrue();
+  }));  
+  
+  it('should check valid cases for form input', fakeAsync(() => {
+    expect(component.myForm.controls['email'].valid).toBeFalse();
+    expect(component.myForm.controls['password'].valid).toBeFalse();
+
+    component.myForm.controls['email'].setValue('subin@hotmail.com');
+    component.myForm.controls['password'].setValue('Password123');
+
+    flush();
+    fixture.detectChanges();
+
+    expect(component.myForm.controls['email'].invalid).toBeFalse();
+    expect(component.myForm.controls['email'].valid).toBeTrue();
+    
+    expect(component.myForm.controls['password'].invalid).toBeFalse();
+    expect(component.myForm.controls['password'].valid).toBeTrue();
   }));
 });
