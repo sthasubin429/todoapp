@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from 'src/app/tasks';
 
 @Component({
@@ -6,25 +6,21 @@ import { Task } from 'src/app/tasks';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
 })
-export class OverviewComponent implements OnInit, OnChanges {
+export class OverviewComponent implements OnInit {
   @Input() taskList: Task[];
 
-  todayTask: number = 0;
-  upcommingTask: number = 0;
-  overdueTask: number = 0;
   constructor() {}
 
   ngOnInit(): void {
     console.log(this.taskList);
-    this.ngOnChanges();
   }
 
-  ngOnChanges(): void {
+  getStats(): {} {
     let todayDate = new Date();
     todayDate.setHours(0, 0, 0, 0);
-    this.todayTask = 0;
-    this.upcommingTask = 0;
-    this.overdueTask = 0;
+    let todayTask: number = 0;
+    let upcommingTask: number = 0;
+    let overdueTask: number = 0;
     for (let task of this.taskList) {
       let tempDate = new Date(task.dateTime);
       tempDate.setHours(0, 0, 0, 0);
@@ -34,14 +30,19 @@ export class OverviewComponent implements OnInit, OnChanges {
       console.log(todayDate < tempDate);
 
       if (todayDate > tempDate) {
-        this.overdueTask = this.overdueTask + 1;
+        overdueTask = overdueTask + 1;
       } else if (todayDate < tempDate) {
-        this.upcommingTask = this.upcommingTask + 1;
+        upcommingTask = upcommingTask + 1;
       } else {
-        this.todayTask = this.todayTask + 1;
+        todayTask = todayTask + 1;
       }
 
-      console.log(this.todayTask, this.upcommingTask, this.overdueTask);
+      console.log(todayTask, upcommingTask, overdueTask);
     }
+    return {
+      todayTask: todayTask,
+      upcommingTask: upcommingTask,
+      overdueTask: overdueTask,
+    };
   }
 }

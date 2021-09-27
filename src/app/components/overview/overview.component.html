@@ -11,7 +11,7 @@
       />
       <div class="overview-content">
         <h3>Today's Tasks</h3>
-        <h1>{{ todayTask }}</h1>
+        <h1>{{ getStats()["todayTask"] }}</h1>
       </div>
     </div>
     <div class="d-flex justify-content-start overview-card">
@@ -24,7 +24,7 @@
       />
       <div class="overview-content">
         <h3>Upcomming Tasks</h3>
-        <h1>{{ upcommingTask }}</h1>
+        <h1>{{ getStats()["upcommingTask"] }}</h1>
       </div>
     </div>
     <div class="d-flex justify-content-start overview-card">
@@ -37,7 +37,7 @@
       />
       <div class="overview-content">
         <h3>Overdue Tasks</h3>
-        <h1>{{ overdueTask }}</h1>
+        <h1>{{ getStats()["overdueTask"] }}</h1>
       </div>
     </div>
   </div>
