@@ -14,9 +14,11 @@ const httpOptions = {
 export class UsersService {
   private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/users';
   constructor(private http: HttpClient) {}
+
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
+
   addUser(data: User): Observable<User> {
     console.log(data);
     let returnValue = this.http.post<User>(

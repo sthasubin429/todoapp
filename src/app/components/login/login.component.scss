@@ -1,5 +1,5 @@
-@use '../../scss/variables.scss' as *;
-@use '../../scss/mixins.scss' as mixins;
+@use "../../scss/variables.scss" as *;
+@use "../../scss/mixins.scss" as mixins;
 
 .login-wrapper {
   @include mixins.center-container();
@@ -34,20 +34,6 @@
       }
       .form-footer {
         @include mixins.form-footer();
-      }
-      .login-footer {
-        font-size: 13px;
-        line-height: 21px;
-        text-align: center;
-        a {
-          color: $color-primary;
-        }
-      }
-    }
-
-    .container-right {
-      img {
-        margin: 0 40px;
       }
     }
   }

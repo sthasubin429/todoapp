@@ -15,7 +15,6 @@ import {
   faCheckCircle,
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { SignupService } from 'src/app/services/signup.service';
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/user';
 

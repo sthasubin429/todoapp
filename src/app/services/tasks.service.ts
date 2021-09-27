@@ -16,7 +16,6 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class TasksService {
-  //For local json server
   private apiUrl = 'https://613715dc8700c50017ef57b0.mockapi.io/api/tasks';
   constructor(private http: HttpClient) {}
 
@@ -29,12 +28,6 @@ export class TasksService {
     return returnValue;
   }
   getListNames(): Observable<string[]> {
-    //  let listNames = [...new Set(TaskList.map((task) => task.list))];
-    //  //  let temp: Task[];
-    //  //  this.getTasks().subscribe((task) => (temp = task));
-    //  //  let listNames = [...new Set(temp.map((task) => task.list))];
-    //  return of(listNames);
-
     return this.http
       .get<Task[]>(this.apiUrl)
       .pipe(map((tasks) => [...new Set(tasks.map((task) => task.list))]));
@@ -44,10 +37,8 @@ export class TasksService {
     return this.http
       .get<Task[]>(this.apiUrl)
       .pipe(map((tasks) => tasks.filter((task) => task.list === listName)));
-    //  let filteredList = TaskList.filter((task) => task.list === listName);
-
-    //  return of(filteredList);
   }
+
   deleteTask(task: Task): Observable<Task> {
     console.log(task);
     console.log(task.id);

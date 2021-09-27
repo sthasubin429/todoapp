@@ -1,5 +1,5 @@
-@use '../../scss/mixins.scss' as mixins;
-@use '../../scss/variables.scss' as *;
+@use "../../scss/mixins.scss" as mixins;
+@use "../../scss/variables.scss" as *;
 
 .signup-wrapper {
   @include mixins.center-container();
@@ -16,11 +16,6 @@
       }
       .form-footer {
         @include mixins.form-footer();
-      }
-    }
-    .container-right {
-      img {
-        margin: 0 40px;
       }
     }
   }
