@@ -57,8 +57,6 @@ export class ForgotPasswordComponent implements OnInit {
     this.submit = true;
 
     if (this.forgotPasswordForm.valid) {
-      console.log(this.userData);
-      console.log(this.forgotPasswordForm.value);
       for (let user of this.userData) {
         if (user.email === this.forgotPasswordEmail.value) {
           console.log('match');

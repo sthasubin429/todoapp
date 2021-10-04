@@ -11,9 +11,7 @@ export class OverviewComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.taskList);
-  }
+  ngOnInit(): void {}
 
   getStats(): {} {
     let todayDate = new Date();
@@ -25,10 +23,6 @@ export class OverviewComponent implements OnInit {
       let tempDate = new Date(task.dateTime);
       tempDate.setHours(0, 0, 0, 0);
 
-      console.log(todayDate, tempDate);
-      console.log(todayDate > tempDate);
-      console.log(todayDate < tempDate);
-
       if (todayDate > tempDate) {
         overdueTask = overdueTask + 1;
       } else if (todayDate < tempDate) {
@@ -36,8 +30,6 @@ export class OverviewComponent implements OnInit {
       } else {
         todayTask = todayTask + 1;
       }
-
-      console.log(todayTask, upcommingTask, overdueTask);
     }
     return {
       todayTask: todayTask,

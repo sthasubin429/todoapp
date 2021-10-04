@@ -57,7 +57,6 @@ export class NewTaskComponent implements OnInit {
       listControl: this.listControl,
       dateControl: this.dateControl,
     });
-    console.log(this.data.taskList);
   }
 
   addNewTask(): void {
@@ -69,9 +68,6 @@ export class NewTaskComponent implements OnInit {
       status: false,
       id: Math.random(),
     };
-
-    console.log(newTask);
-    console.log(this.addTaskForm.valid);
 
     if (this.addTaskForm.valid) {
       this.taskService.addTask(newTask).subscribe((task) => {

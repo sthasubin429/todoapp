@@ -52,7 +52,6 @@ export class TodayTaskComponent implements OnInit {
   ) {}
 
   triggerAnimation: string = 'show';
-  //   taskList: Task[];
   @Input() taskList: Task[];
   @Input() animateChildren: boolean;
   get stateName() {
@@ -60,7 +59,6 @@ export class TodayTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //  this.tasksService.getTasks().subscribe((tasks) => (this.taskList = tasks));
     this.dataService.currentAnimation.subscribe(
       (animation) => (this.triggerAnimation = animation)
     );
@@ -79,16 +77,12 @@ export class TodayTaskComponent implements OnInit {
     let deleteTask = this.taskList.filter((task) => task.status === true);
     console.log(deleteTask);
     for (let task of deleteTask) {
-      console.log(task);
       this.tasksService.deleteTask(task).subscribe(() => {
-        //   this.taskList = this.taskList.filter((t) => t.id !== task.id);
         this.taskList.forEach((t, index) => {
           if (t.id === task.id) {
             this.taskList.splice(index, 1);
           }
         });
-
-        console.log(this.taskList);
       });
     }
   }
