@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ListsService } from 'src/app/services/lists.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-list',
@@ -21,7 +22,8 @@ export class NewListComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private listService: ListsService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _snackBar: MatSnackBar
   ) {}
 
   newListName = new FormControl('', [
@@ -43,7 +45,9 @@ export class NewListComponent implements OnInit {
 
       this.dialog.closeAll();
 
-      window.alert('List Added');
+      this._snackBar.open('New List Added', null, {
+        duration: 2000,
+      });
     } else {
       this.submit = true;
     }

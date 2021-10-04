@@ -1,5 +1,5 @@
-@use '../../scss/variables.scss' as *;
-@use '../../scss/mixins.scss';
+@use "../../scss/variables.scss" as *;
+@use "../../scss/mixins.scss";
 h1 {
   font-weight: 400;
   margin-bottom: 28px;
@@ -23,8 +23,6 @@ h1 {
   .today-tasks {
     padding: 10px;
     margin: 5px 0;
-    //  animation: todayTask 1s ease 0s 1 normal none;
-    //  transition: transform 4s ease;
 
     .today-text {
       margin-left: 16px;

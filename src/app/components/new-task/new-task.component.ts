@@ -10,6 +10,7 @@ import { Task } from 'src/app/tasks';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ListsService } from 'src/app/services/lists.service';
 import { DataService } from 'src/app/services/data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-task',
@@ -40,7 +41,8 @@ export class NewTaskComponent implements OnInit {
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private listService: ListsService,
-    private dataService: DataService
+    private dataService: DataService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +78,10 @@ export class NewTaskComponent implements OnInit {
         this.dialog.closeAll();
       });
       this.dialog.closeAll();
+
+      this._snackBar.open('Task Added Sucessfully', null, {
+        duration: 2000,
+      });
     }
   }
 }

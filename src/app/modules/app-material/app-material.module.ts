@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {
   NgxMatDatetimePickerModule,
@@ -39,6 +40,7 @@ import {
     MatExpansionModule,
     MatRadioModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -56,6 +58,7 @@ import {
     MatExpansionModule,
     MatRadioModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
   providers: [MatDatepickerModule],
 })
