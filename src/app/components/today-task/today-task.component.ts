@@ -75,7 +75,6 @@ export class TodayTaskComponent implements OnInit {
 
   onClick() {
     let deleteTask = this.taskList.filter((task) => task.status === true);
-    console.log(deleteTask);
     for (let task of deleteTask) {
       this.tasksService.deleteTask(task).subscribe(() => {
         this.taskList.forEach((t, index) => {
